@@ -24,7 +24,7 @@ Chaque cellule aura donc un, ou deux, pointeurs vers une suivante, en fonction d
 
 Illustration : pour simplifier l’interprétation, on représentera une cellule de manière verticale : en haut, la valeur stockée, puis en dessous les différents niveaux de pointage, le premier étant celui d’une liste simplement chaînée. 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.004.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.004.png)
 
 La variable levels\_list stocke deux pointeurs, un sur chaque niveau de liste. Certaines cellules n’ont qu’une suivante, d’autre deux, la dernière de la liste de niveau 0 n’en a aucune. 
 
@@ -58,7 +58,7 @@ Par  exemple,  si  la  hauteur  de  la  liste  est  égale  à 5,  chaque  cellu
 
 Illustration : 
 
-Niveau 0 Niveau 1 ![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.005.jpeg)
+Niveau 0 Niveau 1 ![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.005.jpeg)
 
 Niveau 4 
 
@@ -80,9 +80,9 @@ Illustration équivalente : en réalité, chaque pointeur, quel que soit son niv
 
 Ainsi, une illustration plus fidèle de la structure de données est la suivante : 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.006.jpeg)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.006.jpeg)
 
-La règle générale pour le pointage des cellules est la suivante :  ![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.007.png)
+La règle générale pour le pointage des cellules est la suivante :  ![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.007.png)
 
 Si une cellule pointe sur une autre cellule à un certain niveau, elle pointe sur d’autres cellules à tous les niveaux ‘inférieurs’ 
 
@@ -114,17 +114,17 @@ Vous écrirez un programme (fonction main()) qui illustre toutes ces fonctionnal
 
 Exemples de résultats attendus, pour une liste à 5 niveaux Liste à niveau vide  
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.008.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.008.png)
 
 TI301 – Algorithmique et structures de données 2 - Projet  ![ref1]![ref2]![ref3]Gestion d’un agenda – PARTIES 2 et 2  
 
 Après insertion de cellules à niveau, affichage simple 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.009.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.009.png)
 
 Après insertion de cellules à niveau, affichage aligné 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.010.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.010.png)
 
 Partie 2 – Complexité de la recherche dans une liste à niveau 
 
@@ -152,7 +152,7 @@ TI301 – Algorithmique et structures de données 2 - Projet  ![ref1]![ref2]![re
 
 La liste voulue est la suivante 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.011.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.011.png)
 
 Exemples Recherche de 3 
 
@@ -178,15 +178,15 @@ Exemple
 
 pour    3 : un tableau levels de 7 entiers, initialisé avec 7 fois la valeur  0 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.012.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.012.png)
 
 On ajoute 1 dans une case sur 2 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.013.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.013.png)
 
 On ajoute 1 dans une case sur 4 
 
-![](Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.014.png)
+![](level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.014.png)
 
 On peut maintenant ajouter les cellules dans la liste avec une boucle : pour un indice i, on ajoute la cellule de valeur i+1 au niveau levels[i] 
 
@@ -201,6 +201,6 @@ Pour  effectuer  cette  comparaison,  vous  pourrez  utiliser  les  fonctions  d
 
 **Vous  produirez  des  graphiques  de  comparaison  de  complexité  de  ces  deux  types  de recherche** 
 
-[ref1]: Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.001.png
-[ref2]: Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.002.png
-[ref3]: Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.003.png
+[ref1]: level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.001.png
+[ref2]: level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.002.png
+[ref3]: level_list_fr/Aspose.Words.40d4f958-b87e-410f-8fc3-ea53f7da1835.003.png
