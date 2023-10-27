@@ -4,9 +4,9 @@
 
 #include "floorCell.h"
 
-
-FloorCell *createFloorCell(int value, int nbFloors){
+FloorCell *createFloorCell(void* value, allTypes type, int nbFloors){
     FloorCell *newFloorCell = (FloorCell*) malloc(sizeof (FloorCell));
+    newFloorCell->type = type;
     newFloorCell->value = value;
     newFloorCell->nbFloors = nbFloors;
     newFloorCell->arrayOfNexts = createArrayOfNexts(nbFloors);
@@ -36,5 +36,35 @@ void deleteFloorCell(FloorCell* floorCell){
 }
 
 void displayFloorCell(FloorCell *floorCell){
-    printf("[ %d|@ ]", floorCell->value);
+    switch (floorCell->type) {
+        case integer:
+            printf("[");
+            displayIntegerStruct((IntegerStruct*)floorCell->value);
+            printf("|@ ]");
+            break;
+        case character:
+            printf("[");
+            displayCharacterStruct((CharacterStruct *)floorCell->value);
+            printf("|@ ]");
+            break;
+        case string:
+            printf("[");
+            displayStringStruct((StringStruct *)floorCell->value);
+            printf("|@ ]");
+            break;
+    }
+}
+
+void displayGap(FloorCell *floorCell){
+    switch (floorCell->type) {
+        case integer:
+            printGapOfInt((IntegerStruct*)floorCell->value);
+            break;
+        case character:
+            printGapOfChar((CharacterStruct*)floorCell->value);
+            break;
+        case string:
+            printGapOfString((StringStruct*)floorCell->value);
+            break;
+    }
 }

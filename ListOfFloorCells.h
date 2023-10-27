@@ -12,8 +12,11 @@ typedef struct ListOfFloorCells{
 }ListOfFloorCells;
 
 ListOfFloorCells *createEmptyFloorList(int nbFloors);
-void addHeadFloorList(ListOfFloorCells* list, int value, int nbFloors);
+void addHeadFloorList(ListOfFloorCells* list, void* value, allTypes type, int nbFloors);
 void displayFloorList(ListOfFloorCells* list);
+void addHeadIntFloorList(ListOfFloorCells *list, int value, int nbFloors);
+void addHeadCharFloorList(ListOfFloorCells *list, char value, int nbFloors);
+void addHeadStringFloorList(ListOfFloorCells *list, char* value, int nbFloors);
 void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor);
 
 #endif //PROJET_C_L2_LISTOFFLOORCELLS_H

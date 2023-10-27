@@ -4,10 +4,6 @@
 
 #include "ListOfFloorCells.h"
 
-
-void printGap(int value);
-int lenOfInt(int value);
-
 ListOfFloorCells *createEmptyFloorList(int nbFloors) {
     ListOfFloorCells *newFloorList = (ListOfFloorCells *) malloc(sizeof(ListOfFloorCells));
     newFloorList->ArrayOfCell = createArrayOfNexts(nbFloors);
@@ -15,8 +11,20 @@ ListOfFloorCells *createEmptyFloorList(int nbFloors) {
     return newFloorList;
 }
 
-void addHeadFloorList(ListOfFloorCells *list, int value, int nbFloors) {
-    FloorCell *newCell = createFloorCell(value, nbFloors);
+void addHeadIntFloorList(ListOfFloorCells *list, int value, int nbFloors){
+    addHeadFloorList(list, (void*) createIntegerStruct(value), integer, nbFloors);
+}
+
+void addHeadCharFloorList(ListOfFloorCells *list, char value, int nbFloors){
+    addHeadFloorList(list, (void*) createCharStruct(value), character, nbFloors);
+}
+
+void addHeadStringFloorList(ListOfFloorCells *list, char* value, int nbFloors){
+    addHeadFloorList(list, (void*) createStringStruct(value), string, nbFloors);
+}
+
+void addHeadFloorList(ListOfFloorCells *list, void* value, allTypes type, int nbFloors) {
+    FloorCell *newCell = createFloorCell(value, type, nbFloors);
     for (int i = 0; i < nbFloors; ++i) {
         newCell->arrayOfNexts[i] = list->ArrayOfCell[i];
     }
@@ -47,33 +55,14 @@ void displayFloorList(ListOfFloorCells *list) {
                 displayFloorCell(temporaryCellFloorI);
                 temporaryCellFloorI = temporaryCellFloorI->arrayOfNexts[i];
             }else{
-                printGap(temporaryCellFloor0->value);
+                displayGap(temporaryCellFloor0);
             }
             temporaryCellFloor0 = temporaryCellFloor0->arrayOfNexts[0];
         }
-        printf("-> NULL\n");
+        printf("--> NULL\n");
     }
 }
 
-int lenOfInt(int value) {
-    int len = 0;
-    if (value == 0) {
-        return 1;
-    }
-    value = abs(value);
-    while (value >= 1) {
-        value = value / 10;
-        len++;
-    }
-    return len;
-}
 
-void printGap(int value) {
-    int lenOfValue = lenOfInt(value);
-    for (int i = 0; i < lenOfValue; ++i) {
-        printf("-");
-    }
-    printf("---------");
-}
 
 
