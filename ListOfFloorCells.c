@@ -76,4 +76,62 @@ void printGap(int value) {
     printf("---------");
 }
 
+ListOfFloorCells *createSortedListWithNValues(int n){
+    int* levelsArray = returnLevelsArrayToNValues(n);
+    ListOfFloorCells *sortedList = createEmptyFloorList(n);
+    for (int i = (int)pow(2,n)-1; i > 0 ; --i) {
+        addHeadFloorList(sortedList, i, levelsArray[i-1]+1);
+    }
+    free(levelsArray);
+    return sortedList;
+}
+
+int *returnLevelsArrayToNValues(int n) {
+    int* levelsArray = (int*) malloc(((int) pow(2, n)-1)*sizeof(int ));
+    for (int i = 0; i < ((int)pow(2, n))-1; ++i) {
+        levelsArray[i] = 0;
+    }
+    int increment = 0;
+    for (int i = 1; i < ((int) pow(2, n-1)); i = (int) pow(2, increment)) {
+        for (int j = 2*i-1; j < ((int)pow(2, n))-1; j=j+2*i) {
+            levelsArray[j]++;
+        }
+        increment++;
+    }
+    return levelsArray;
+}
+
+int classicSearchValueInFloorList(ListOfFloorCells* list, int value){
+    FloorCell *temporaryCell = list->ArrayOfCell[0];
+    while (temporaryCell->arrayOfNexts[0] != NULL && temporaryCell->value != value){
+        temporaryCell = temporaryCell->arrayOfNexts[0];
+    }
+    if (temporaryCell->value == value){
+        return 1;
+    }return 0;
+}
+
+int levelSearchValueInFloorList(ListOfFloorCells* list, int value){
+    FloorCell *temporary = list->ArrayOfCell[list->nbFloors-1];
+    FloorCell *previous = NULL;
+    for (int i = list->nbFloors-1; i >= 0 ; --i) {
+        if (temporary->value == value){
+            return 1;
+        } else if(value > temporary->value ){
+            previous = temporary;
+            temporary = temporary->arrayOfNexts[i-1];
+        }else{
+            if (previous == NULL){
+                temporary = list->ArrayOfCell[i-1];
+            } else{
+                temporary = previous->arrayOfNexts[i-1];
+            }
+        }
+        if(previous != NULL){
+            if (previous == temporary){
+                return 0;
+            }
+        }
+    }return 0;
+}
 

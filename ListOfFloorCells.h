@@ -5,6 +5,7 @@
 #ifndef PROJET_C_L2_LISTOFFLOORCELLS_H
 #define PROJET_C_L2_LISTOFFLOORCELLS_H
 #include "floorCell.h"
+#include "math.h"
 
 typedef struct ListOfFloorCells{
     FloorCell **ArrayOfCell;
@@ -15,5 +16,9 @@ ListOfFloorCells *createEmptyFloorList(int nbFloors);
 void addHeadFloorList(ListOfFloorCells* list, int value, int nbFloors);
 void displayFloorList(ListOfFloorCells* list);
 void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor);
+ListOfFloorCells *createSortedListWithNValues(int n);
+int *returnLevelsArrayToNValues(int n);
+int classicSearchValueInFloorList(ListOfFloorCells* list, int value);
+int levelSearchValueInFloorList(ListOfFloorCells* list, int value);
 
 #endif //PROJET_C_L2_LISTOFFLOORCELLS_H

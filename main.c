@@ -1,17 +1,78 @@
 #include <stdio.h>
 #include "ListOfFloorCells.h"
+#include "timer.h"
+#include "string.h"
 
 int main() {
-    ListOfFloorCells *myList = createEmptyFloorList(5);
-    addHeadFloorList(myList, 91, 3);
-    addHeadFloorList(myList, 59, 1);
-    addHeadFloorList(myList, 59, 4);
-    addHeadFloorList(myList, 56, 3);
-    addHeadFloorList(myList, 32, 5);
-    addHeadFloorList(myList, 31, 2);
-    addHeadFloorList(myList, 25, 1);
-    addHeadFloorList(myList, 18, 4);
-    printf("%d",myList->ArrayOfCell[3]->arrayOfNexts[1]->value);
-//    displayFloorList(myList);
+    srand (time (NULL));
+    char* timer = NULL;
+    for (int i = 1; i <= 30; ++i) {
+        FILE *f = freopen("classic.txt", "a", stdout);
+        ListOfFloorCells *myList = createSortedListWithNValues(i);
+        printf("%d; ", i);
+        startTimer();
+        for (int j = 0; j < 1000; ++j) {
+            int searchValue = (rand() % ((int)pow(2, i)-1))+1;
+            classicSearchValueInFloorList(myList, searchValue);
+        }
+        stopTimer();
+        timer = getTimeAsString();
+        printf("%s; ", timer);
+        free(timer);
+
+        startTimer();
+        for (int j = 0; j < 10000; ++j) {
+            int searchValue = (rand() % ((int)pow(2, i)-1))+1;
+            classicSearchValueInFloorList(myList, searchValue);
+        }
+        stopTimer();
+        timer = getTimeAsString();
+        printf("%s; ", timer);
+        free(timer);
+
+        startTimer();
+        for (int j = 0; j < 100000; ++j) {
+            int searchValue = (rand() % ((int)pow(2, i)-1))+1;
+            classicSearchValueInFloorList(myList, searchValue);
+        }
+        stopTimer();
+        timer = getTimeAsString();
+        printf("%s\n", timer);
+        free(timer);
+        fclose(f);
+
+        FILE *f2 = freopen("levels.txt", "a", stdout);
+        printf("%d; ", i);
+        startTimer();
+        for (int j = 0; j < 1000; ++j) {
+            int searchValue = (rand() % ((int)pow(2, i)-1))+1;
+            levelSearchValueInFloorList(myList, searchValue);
+        }
+        stopTimer();
+        timer = getTimeAsString();
+        printf("%s; ", timer);
+        free(timer);
+
+        startTimer();
+        for (int j = 0; j < 10000; ++j) {
+            int searchValue = (rand() % ((int)pow(2, i)-1))+1;
+            levelSearchValueInFloorList(myList, searchValue);
+        }
+        stopTimer();
+        timer = getTimeAsString();
+        printf("%s; ", timer);
+        free(timer);
+
+        startTimer();
+        for (int j = 0; j < 100000; ++j) {
+            int searchValue = (rand() % ((int)pow(2, i)-1))+1;
+            levelSearchValueInFloorList(myList, searchValue);
+        }stopTimer();
+        timer = getTimeAsString();
+        printf("%s\n", timer);
+        free(timer);
+        fclose(f2);
+    }
+
     return 0;
 }
