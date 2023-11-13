@@ -13,12 +13,14 @@ typedef struct ListOfFloorCells{
 }ListOfFloorCells;
 
 ListOfFloorCells *createEmptyFloorList(int nbFloors);
-void addHeadFloorList(ListOfFloorCells* list, int value, int nbFloors);
+void addHeadFloorList(ListOfFloorCells* list, unsigned long long value, int nbFloors);
+void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, int nbFloors);
 void displayFloorList(ListOfFloorCells* list);
 void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor);
 ListOfFloorCells *createSortedListWithNValues(int n);
 int *returnLevelsArrayToNValues(int n);
-int classicSearchValueInFloorList(ListOfFloorCells* list, int value);
-int levelSearchValueInFloorList(ListOfFloorCells* list, int value);
+int classicSearchValueInFloorList(ListOfFloorCells* list, unsigned long long value);
+int levelSearchValueInFloorList(ListOfFloorCells* list, unsigned long long value);
+void deleteFloorList(ListOfFloorCells* list);
 
 #endif //PROJET_C_L2_LISTOFFLOORCELLS_H

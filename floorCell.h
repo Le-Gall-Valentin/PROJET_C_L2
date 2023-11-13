@@ -8,12 +8,12 @@
 #include <stdio.h>
 
 typedef struct FloorCell{
-    int value;
+    unsigned long long value;
     struct FloorCell** arrayOfNexts;
     int nbFloors;
 }FloorCell;
 
-FloorCell *createFloorCell(int value, int nbFloors);
+FloorCell *createFloorCell(unsigned long long value, int nbFloors);
 void deleteFloorCell(FloorCell* floorCell);
 FloorCell **createArrayOfNexts(int nbFloors);
 int isEmptyArrayOfFloorCell(FloorCell** ArrayOfFloorCell, int size);

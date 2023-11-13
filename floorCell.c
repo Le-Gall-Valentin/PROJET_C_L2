@@ -5,7 +5,7 @@
 #include "floorCell.h"
 
 
-FloorCell *createFloorCell(int value, int nbFloors){
+FloorCell *createFloorCell(unsigned long long value, int nbFloors){
     FloorCell *newFloorCell = (FloorCell*) malloc(sizeof (FloorCell));
     newFloorCell->value = value;
     newFloorCell->nbFloors = nbFloors;
@@ -36,5 +36,5 @@ void deleteFloorCell(FloorCell* floorCell){
 }
 
 void displayFloorCell(FloorCell *floorCell){
-    printf("[ %d|@ ]", floorCell->value);
+        printf("[ %lld|@ ]", floorCell->value);
 }
