@@ -4,15 +4,15 @@
 #include "string.h"
 
 int main() {
-    srand (time (NULL));
+    srand(time(NULL));
     for (int i = 1; i <= 25; ++i) {
-        unsigned long long  searchValue = (unsigned long long)pow(2,i)-1;;
         FILE *f = freopen("classic2.txt", "a", stdout);
         ListOfFloorCells *myList = createSortedListWithNValues(i);
         printf("%d; ", i);
 
         startTimer();
         for (int j = 0; j < 10000; ++j) {
+            unsigned long long searchValue = (getLongRandomNumber() % (((unsigned long long) pow(2, i)) - 1)) + 1;
             classicSearchValueInFloorList(myList, searchValue);
         }
         stopTimer();
@@ -24,12 +24,14 @@ int main() {
 
         startTimer();
         for (int j = 0; j < 10000; ++j) {
+            unsigned long long searchValue = (getLongRandomNumber() % (((unsigned long long) pow(2, i)) - 1)) + 1;
             levelSearchValueInFloorList(myList, searchValue);
-        }stopTimer();
+        }
+        stopTimer();
         stopTimer();
         printf("%s\n", getTimeAsString());
         fclose(f2);
-//        deleteFloorList(myList);
+        deleteFloorList(myList);
     }
     return 0;
 }

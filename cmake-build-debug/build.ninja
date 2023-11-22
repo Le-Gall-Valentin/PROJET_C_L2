@@ -73,6 +73,12 @@ build CMakeFiles/PROJET_C_L2_3.dir/timer.c.obj: C_COMPILER__PROJET_C_L2_3_Debug 
   OBJECT_DIR = CMakeFiles\PROJET_C_L2_3.dir
   OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_3.dir
 
+build CMakeFiles/PROJET_C_L2_3.dir/manageInts.c.obj: C_COMPILER__PROJET_C_L2_3_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageInts.c || cmake_object_order_depends_target_PROJET_C_L2_3
+  DEP_FILE = CMakeFiles\PROJET_C_L2_3.dir\manageInts.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always -std=gnu99
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2_3.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_3.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target PROJET_C_L2_3
@@ -81,7 +87,7 @@ build CMakeFiles/PROJET_C_L2_3.dir/timer.c.obj: C_COMPILER__PROJET_C_L2_3_Debug 
 #############################################
 # Link the executable PROJET_C_L2_3.exe
 
-build PROJET_C_L2_3.exe: C_EXECUTABLE_LINKER__PROJET_C_L2_3_Debug CMakeFiles/PROJET_C_L2_3.dir/main.c.obj CMakeFiles/PROJET_C_L2_3.dir/ListOfFloorCells.c.obj CMakeFiles/PROJET_C_L2_3.dir/floorCell.c.obj CMakeFiles/PROJET_C_L2_3.dir/timer.c.obj
+build PROJET_C_L2_3.exe: C_EXECUTABLE_LINKER__PROJET_C_L2_3_Debug CMakeFiles/PROJET_C_L2_3.dir/main.c.obj CMakeFiles/PROJET_C_L2_3.dir/ListOfFloorCells.c.obj CMakeFiles/PROJET_C_L2_3.dir/floorCell.c.obj CMakeFiles/PROJET_C_L2_3.dir/timer.c.obj CMakeFiles/PROJET_C_L2_3.dir/manageInts.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\PROJET_C_L2_3.dir
