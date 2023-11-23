@@ -16,14 +16,6 @@ Contact *createContact(){
     return newContact;
 }
 
-void toLowerCase(char *name) {
-    unsigned long long size = strlen(name);
-    for(int i=0; i<size;i++){
-        if(name[i]<='Z' && name[i] != '_'){
-            name[i] = name[i]+32;
-        }
-    }
-}
 
 void displayContact(Contact contact){
     printf("%s",contact.lastnameFirstname);
