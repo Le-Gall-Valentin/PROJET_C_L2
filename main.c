@@ -37,10 +37,9 @@ int main() {
     Contact *contact;
     contact = createContact();
     displayContact(*contact);
-//    addEventToContact(contact);
-//    displayContact(*contact);
-//    addEventToContact(contact);
-//    displayContact(*contact);
-//    printf("%d",'a'-'A');
+    addEventToContact(contact);
+    displayContact(*contact);
+    addEventToContact(contact);
+    displayContact(*contact);
     return 0;
 }

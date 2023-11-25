@@ -12,7 +12,7 @@ void displayEvent(Event* event){
 
 Event *createEvent(){
     Event *newEvent = (Event*) malloc(sizeof (Event));
-    printf("enter date : day mont year :\n");
+    printf("\nenter date : day mont year :\n");
     scanf("%d %d %d",&newEvent->day,&newEvent->month,&newEvent->year);
     printf("enter the hour were the event will take place :\n");
     scanf("%d %d",&newEvent->hour,&newEvent->minutes);
