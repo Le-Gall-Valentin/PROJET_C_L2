@@ -4,20 +4,28 @@
 
 #ifndef PROJET_C_L2_3_CONTACT_H
 #define PROJET_C_L2_3_CONTACT_H
+
 #include "Event.h"
 #include "string.h"
 #include "stdio.h"
 #include "stdlib.h"
-#include "String functions.h"
+#include "manageString.h"
 
-typedef struct contact{
-    char* lastnameFirstname;
-    Event* listOfEvent;
- } Contact;
+typedef struct contact {
+    char *lastnameFirstname;
+    Event *listOfEvent;
+} Contact;
 
-void addEventToContact(Contact* contact);
-void displayContact(Contact contact);
+void addEventToContact(Contact *contact);
+
+void displayContact(Contact *contact);
+
 Event *createEmptyListOfEvent();
-Contact *createContact();
+
+Contact *entryOfContact();
+
+Contact *createContact(char *name);
+
 void displayListOfEvent();
+
 #endif //PROJET_C_L2_3_CONTACT_H

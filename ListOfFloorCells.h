@@ -16,9 +16,9 @@ typedef struct ListOfFloorCells {
 
 ListOfFloorCells *createEmptyFloorList(int nbFloors);
 
-void addHeadFloorList(ListOfFloorCells *list, unsigned long long value, int nbFloors);
+void addHeadFloorList(ListOfFloorCells *list, Contact *contact, int nbFloors);
 
-void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, int nbFloors);
+void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact, int nbFloors);
 
 void displayFloorList(ListOfFloorCells *list);
 
@@ -31,5 +31,7 @@ int classicSearchValueInFloorList(ListOfFloorCells *list, unsigned long long val
 int levelSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value);
 
 void deleteFloorList(ListOfFloorCells *list);
+
+void addContact(ListOfFloorCells *list, Contact *newContact);
 
 #endif //PROJET_C_L2_LISTOFFLOORCELLS_H

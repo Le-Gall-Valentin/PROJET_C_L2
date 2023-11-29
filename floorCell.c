@@ -6,9 +6,9 @@
 #include "floorCell.h"
 
 
-FloorCell *createFloorCell(unsigned long long value, int nbFloors) {
+FloorCell *createFloorCell(Contact *contact, int nbFloors) {
     FloorCell *newFloorCell = (FloorCell *) malloc(sizeof(FloorCell));
-    newFloorCell->value = value;
+    newFloorCell->value = contact;
     newFloorCell->nbFloors = nbFloors;
     newFloorCell->arrayOfNexts = createArrayOfNexts(nbFloors);
     return newFloorCell;
@@ -32,11 +32,14 @@ int isEmptyArrayOfFloorCell(FloorCell **ArrayOfFloorCell, int size) {
 }
 
 void deleteFloorCell(FloorCell *floorCell) {
-    printf("%d\n", floorCell->value);
     free(floorCell->arrayOfNexts);
     free(floorCell);
 }
 
-void displayFloorCell(FloorCell *floorCell) {
-    printf("[ %lld|@ ]", floorCell->value);
+void displayFloorCellName(FloorCell *floorCell) {
+    printf("[ %s|@ ]", floorCell->value->lastnameFirstname);
+}
+
+void displayFloorCellAllInformations(FloorCell *floorCell) {
+    displayContact(floorCell->value);
 }

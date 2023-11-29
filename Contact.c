@@ -4,39 +4,45 @@
 
 #include "Contact.h"
 
+Contact *entryOfContact() {
+    char *name;
+    Contact *contact;
+    printf("insert lastname_firstname :");
+    name = scanString();
+    contact = createContact(name);
+    return contact;
+};
 
-void toLowerCase(char *firstname);
 
-Contact *createContact(){
-    Contact *newContact = (Contact*) malloc(sizeof (Contact));
-    printf("insert lastname_firstname\n");
-    newContact->lastnameFirstname = scanString();
+Contact *createContact(char *name) {
+    Contact *newContact = (Contact *) malloc(sizeof(Contact));
+    newContact->lastnameFirstname = name;
     toLowerCase(newContact->lastnameFirstname);
     newContact->listOfEvent = NULL;
     return newContact;
 }
 
 
-void displayContact(Contact contact){
-    printf("%s",contact.lastnameFirstname);
-    displayListOfEvent(contact.listOfEvent);
+void displayContact(Contact *contact) {
+    printf("%s \n", contact->lastnameFirstname);
+    displayListOfEvent(contact->listOfEvent);
 }
 
-void displayListOfEvent(Event* list) {
+void displayListOfEvent(Event *list) {
     Event *temporaryEvent = list;
-    while (temporaryEvent != NULL){
+    while (temporaryEvent != NULL) {
         displayEvent(temporaryEvent);
         temporaryEvent = temporaryEvent->next;
     }
 }
 
-void addEventToContact(Contact* contact){
-    Event* newEventToAdd = createEvent();
-    if(contact->listOfEvent == NULL){
+void addEventToContact(Contact *contact) {
+    Event *newEventToAdd = createEvent();
+    if (contact->listOfEvent == NULL) {
         contact->listOfEvent = newEventToAdd;
-    }else{
+    } else {
         Event *temporaryEvent = contact->listOfEvent;
-        while (temporaryEvent->next!=NULL){
+        while (temporaryEvent->next != NULL) {
             temporaryEvent = temporaryEvent->next;
         }
         temporaryEvent->next = newEventToAdd;

@@ -1,45 +1,16 @@
-#include <stdio.h>
-#include "ListOfFloorCells.h"
-#include "timer.h"
-#include "string.h"
 #include "Contact.h"
-int main() {
-//    srand(time(NULL));
-//    for (int i = 1; i <= 25; ++i) {
-//        FILE *f = freopen("classic2.txt", "a", stdout);
-//        ListOfFloorCells *myList = createSortedListWithNValues(i);
-//        printf("%d; ", i);
-//
-//        startTimer();
-//        for (int j = 0; j < 10000; ++j) {
-//            unsigned long long searchValue = (getLongRandomNumber() % (((unsigned long long) pow(2, i)) - 1)) + 1;
-//            classicSearchValueInFloorList(myList, searchValue);
-//        }
-//        stopTimer();
-//        printf("%s\n", getTimeAsString());
-//        fclose(f);
-//
-//        FILE *f2 = freopen("levels2.txt", "a", stdout);
-//        printf("%d; ", i);
-//
-//        startTimer();
-//        for (int j = 0; j < 10000; ++j) {
-//            unsigned long long searchValue = (getLongRandomNumber() % (((unsigned long long) pow(2, i)) - 1)) + 1;
-//            levelSearchValueInFloorList(myList, searchValue);
-//        }
-//        stopTimer();
-//        stopTimer();
-//        printf("%s\n", getTimeAsString());
-//        fclose(f2);
-//        deleteFloorList(myList);
-//    }
+#include "ListOfFloorCells.h"
 
-    Contact *contact;
-    contact = createContact();
-    displayContact(*contact);
-    addEventToContact(contact);
-    displayContact(*contact);
-    addEventToContact(contact);
-    displayContact(*contact);
+int main() {
+    ListOfFloorCells *myList = createEmptyFloorList(4);
+    Contact *contact1 = entryOfContact();
+    Contact *contact2 = entryOfContact();
+    Contact *contact3 = entryOfContact();
+    Contact *contact4 = entryOfContact();
+    addContact(myList, contact1);
+    addContact(myList, contact2);
+    addContact(myList, contact3);
+    addContact(myList, contact4);
+    displayFloorList(myList);
     return 0;
 }

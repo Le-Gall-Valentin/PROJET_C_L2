@@ -6,15 +6,18 @@
 #define PROJET_C_L2_FLOORCELL_H
 #include <stdlib.h>
 #include <stdio.h>
+#include "Contact.h"
 
-typedef struct FloorCell{
-    unsigned long long value;
-    struct FloorCell** arrayOfNexts;
+typedef struct FloorCell {
+    Contact *value;
+    struct FloorCell **arrayOfNexts;
     int nbFloors;
 }FloorCell;
 
-FloorCell *createFloorCell(unsigned long long value, int nbFloors);
-void deleteFloorCell(FloorCell* floorCell);
+FloorCell *createFloorCell(Contact *value, int nbFloors);
+
+void deleteFloorCell(FloorCell *floorCell);
+
 FloorCell **createArrayOfNexts(int nbFloors);
 int isEmptyArrayOfFloorCell(FloorCell** ArrayOfFloorCell, int size);
 void displayFloorCell(FloorCell *floorCell);
