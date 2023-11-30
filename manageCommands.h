@@ -17,4 +17,6 @@ void help();
 
 void addNewMeet(ListOfFloorCells *agenda);
 
+void deleteMeet(ListOfFloorCells *agenda);
+
 #endif //PROJET_C_L2_5_MANAGECOMMANDS_H

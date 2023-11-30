@@ -16,15 +16,36 @@ void makeCommand(char *command, int *state, ListOfFloorCells *agenda) {
         addSortedCellInFloorList(agenda, entryOfContact());
     } else if (strcmp(command, "addnewmeet") == 0) {
         addNewMeet(agenda);
+    } else if (strcmp(command, "deletemeet") == 0) {
+        deleteMeet(agenda);
     } else if (strcmp(command, "viewallcontacts") == 0) {
         displayAllValues(agenda);
     } else if (strcmp(command, "exit") == 0) {
         printf("Good Bye !");
         *state = 0;
+    } else if (strcmp(command, "adminviewlist") == 0) {
+        displayFloorList(agenda);
     } else {
         printf("Wrong command : use >help to view all commands\n");
     }
     printf("\n");
+}
+
+void deleteMeet(ListOfFloorCells *agenda) {
+    printf("Entry name : ");
+    char *name = scanString();
+    toLowerCase(name);
+    FloorCell *CellOfContact = classicSearchValueInFloorList(agenda, name);
+    if (CellOfContact != NULL) {
+        char *eventID;
+        do {
+            printf("Entry event ID : ");
+            eventID = scanString();
+        } while (!isDigit(eventID) || convertStringToDigit(eventID) < 1);
+        deleteEventInEventListWithId(&(CellOfContact->value->listOfEvent), convertStringToDigit(eventID));
+    } else {
+        printf("Contact doesn't exist ! create him");
+    }
 }
 
 void viewContact(ListOfFloorCells *agenda) {

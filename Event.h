@@ -16,10 +16,14 @@ typedef struct event {
     struct event *next;
 } Event;
 
-StringArray requestDate();
+void displayListOfEvents(Event *list);
 
 void displayEvent(Event *);
 
 Event *createEvent();
+
+void deleteEvent(Event *event);
+
+void deleteEventInEventListWithId(Event **list, unsigned int ID);
 
 #endif //PROJET_C_L2_3_EVENT_H

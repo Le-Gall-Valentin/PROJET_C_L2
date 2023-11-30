@@ -28,14 +28,6 @@ void displayContact(Contact *contact) {
     displayListOfEvents(contact->listOfEvent);
 }
 
-void displayListOfEvents(Event *list) {
-    Event *temporaryEvent = list;
-    while (temporaryEvent != NULL) {
-        displayEvent(temporaryEvent);
-        temporaryEvent = temporaryEvent->next;
-    }
-}
-
 void addEventToContact(Contact *contact) {
     Event *newEventToAdd = createEvent();
     if (contact->listOfEvent == NULL) {

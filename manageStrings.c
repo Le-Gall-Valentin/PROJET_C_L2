@@ -68,8 +68,12 @@ StringArray splitStringToArray(const char *stringToSplit, const char *delimiter)
 
 int isDigit(char *string) {
     int digit = TRUE;
-    for (int i = 0; i < strlen(string); i++) {
-        if ((string[i] < 48) || (string[i] > 57)) {
+    int index = 0;
+    if (string[0] == '-') {
+        index = 1;
+    }
+    for (index; index < strlen(string); index++) {
+        if ((string[index] < 48) || (string[index] > 57)) {
             digit = FALSE;
         }
     }
