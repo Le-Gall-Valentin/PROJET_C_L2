@@ -41,5 +41,7 @@ void displayFloorCellName(FloorCell *floorCell) {
 }
 
 void displayFloorCellAllInformations(FloorCell *floorCell) {
-    displayContact(floorCell->value);
+    if (floorCell != NULL) {
+        displayContact(floorCell->value);
+    }
 }

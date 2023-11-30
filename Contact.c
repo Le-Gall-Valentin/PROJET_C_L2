@@ -25,10 +25,10 @@ Contact *createContact(char *name) {
 
 void displayContact(Contact *contact) {
     printf("%s \n", contact->lastnameFirstname);
-    displayListOfEvent(contact->listOfEvent);
+    displayListOfEvents(contact->listOfEvent);
 }
 
-void displayListOfEvent(Event *list) {
+void displayListOfEvents(Event *list) {
     Event *temporaryEvent = list;
     while (temporaryEvent != NULL) {
         displayEvent(temporaryEvent);

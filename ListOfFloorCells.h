@@ -18,20 +18,18 @@ ListOfFloorCells *createEmptyFloorList(int nbFloors);
 
 void addHeadFloorList(ListOfFloorCells *list, Contact *contact, int nbFloors);
 
-void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact, int nbFloors);
+void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact);
 
 void displayFloorList(ListOfFloorCells *list);
 
-void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor);
-
 ListOfFloorCells *createSortedListWithNValues(int n);
 
-int classicSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value);
+FloorCell *classicSearchValueInFloorList(ListOfFloorCells *list, char *name);
 
-int levelSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value);
+FloorCell *levelSearchValueInFloorList(ListOfFloorCells *list, char *name);
 
 void deleteFloorList(ListOfFloorCells *list);
 
-void addContact(ListOfFloorCells *list, Contact *newContact);
+void displayAllValues(ListOfFloorCells *list);
 
 #endif //PROJET_C_L2_LISTOFFLOORCELLS_H

@@ -11,14 +11,6 @@ void displayEvent(Event *event) {
     printf("%s\n", event->eventDescription);
 }
 
-StringArray requestDate() {
-    char *newEntry;
-    printf("enter new event (day/month/year hour/minutes time(minutes) description :");
-    newEntry = scanString();
-    StringArray event = splitStringToArray(newEntry, " ");
-    return event;
-}
-
 Event *createEvent() {
     Event *newEvent = (Event *) malloc(sizeof(Event));
 
@@ -31,12 +23,15 @@ Event *createEvent() {
     newEvent->day = convertStringToDigit(date.array[0]);
     newEvent->month = convertStringToDigit(date.array[1]);
     newEvent->year = convertStringToDigit(date.array[2]);
+    deleteString(date);
 
     StringArray hour = splitStringToArray(event.array[1], "/");
     newEvent->hour = convertStringToDigit(hour.array[0]);
     newEvent->minutes = convertStringToDigit(hour.array[1]);
+    deleteString(hour);
 
     newEvent->event_time = convertStringToDigit(event.array[2]);
+    deleteString(event);
 
     printf("Add Description :");
     newEvent->eventDescription = scanString();

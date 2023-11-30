@@ -4,9 +4,11 @@
 
 #include "manageString.h"
 
-void deleteString(char *string) {
-    free(string);
-    string = NULL;
+void deleteString(StringArray string) {
+    for (int i = 0; i < string.size; ++i) {
+        free(string.array[i]);
+    }
+    free(string.array);
 }
 
 unsigned int countStringArrayElements(const char *array, const char *delimiter) {

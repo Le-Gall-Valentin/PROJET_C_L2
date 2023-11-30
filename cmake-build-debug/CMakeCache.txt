@@ -128,7 +128,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=PROJET_C_L2_4
+CMAKE_PROJECT_NAME:STATIC=PROJET_C_L2_7
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/ranlib.exe
@@ -236,6 +236,33 @@ PROJET_C_L2_4_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 PROJET_C_L2_4_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_5_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_5_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_5_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_6_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_6_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_6_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_7_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_7_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_7_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
 
 //Value Computed by CMake
 PROJET_C_L2_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug

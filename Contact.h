@@ -20,12 +20,10 @@ void addEventToContact(Contact *contact);
 
 void displayContact(Contact *contact);
 
-Event *createEmptyListOfEvent();
-
 Contact *entryOfContact();
 
 Contact *createContact(char *name);
 
-void displayListOfEvent();
+void displayListOfEvents(Event *list);
 
 #endif //PROJET_C_L2_3_CONTACT_H
