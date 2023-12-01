@@ -31,17 +31,9 @@ void addHeadFloorList(ListOfFloorCells *list, unsigned long long value, int nbFl
 
 void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, int nbFloors) {
     FloorCell *newCell = createFloorCell(value, nbFloors);
-    if (list == NULL) {
-        for (int i = 0; i < nbFloors; ++i) {
-            // Si la list est vide ajouter direct
-            list->ArrayOfCell[i] = newCell;
-        }
-        return;
-    }
     FloorCell *current = NULL;
     FloorCell *prev = NULL;
-    int level = nbFloors - 1;
-    while (level >= 0) {
+    for (int level = nbFloors - 1; level >= 0; --level) {
         current = list->ArrayOfCell[level];
         prev = NULL;
         while (current != NULL && current->value < value) {
@@ -61,7 +53,6 @@ void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, 
             prev->arrayOfNexts[level] = newCell;
         }
         //on descend d'un level pour faire tous les levls
-        level--;
     }
 }
 
