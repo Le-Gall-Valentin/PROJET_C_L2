@@ -16,7 +16,8 @@ Contact *entryOfContact() {
 
 Contact *createContact(char *name) {
     Contact *newContact = (Contact *) malloc(sizeof(Contact));
-    newContact->lastnameFirstname = name;
+    newContact->lastnameFirstname = (char *) malloc(MAX_BUFFER * sizeof(char));
+    strcpy(newContact->lastnameFirstname, name);
     toLowerCase(newContact->lastnameFirstname);
     newContact->listOfEvent = NULL;
     return newContact;

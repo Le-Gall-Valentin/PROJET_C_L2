@@ -5,19 +5,19 @@
 #include "manageCommands.h"
 
 
-void makeCommand(char *command, int *state, ListOfFloorCells *agenda) {
+void makeCommand(char *command, unsigned short *state, unsigned short *autoComplete, ListOfFloorCells *agenda) {
     printf("\n");
     toLowerCase(command);
     if (strcmp(command, "help") == 0) {
         help();
     } else if (strcmp(command, "viewcontact") == 0) {
-        viewContact(agenda);
+        viewContact(agenda, *autoComplete);
     } else if (strcmp(command, "createcontact") == 0) {
         addSortedCellInFloorList(agenda, entryOfContact());
     } else if (strcmp(command, "addnewmeet") == 0) {
-        addNewMeet(agenda);
+        addNewMeet(agenda, *autoComplete);
     } else if (strcmp(command, "deletemeet") == 0) {
-        deleteMeet(agenda);
+        deleteMeet(agenda, *autoComplete);
     } else if (strcmp(command, "viewallcontacts") == 0) {
         displayAllValues(agenda);
     } else if (strcmp(command, "exit") == 0) {
@@ -25,21 +25,103 @@ void makeCommand(char *command, int *state, ListOfFloorCells *agenda) {
         *state = 0;
     } else if (strcmp(command, "adminviewlist") == 0) {
         displayFloorList(agenda);
+    } else if (strcmp(command, "autocomplete") == 0) {
+        changeAutoComplete(autoComplete);
     } else {
         printf("Wrong command : use >help to view all commands\n");
     }
     printf("\n");
 }
 
-void deleteMeet(ListOfFloorCells *agenda) {
-    printf("Entry name : ");
-    char *name = scanString();
-    toLowerCase(name);
-    FloorCell *CellOfContact = classicSearchValueInFloorList(agenda, name);
+FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned short autoComplete, char **name) {
+    char *newName;
+    char *letter = NULL;
+    if (autoComplete == 0) {
+        printf("Entry name :");
+        newName = scanString();
+        toLowerCase(newName);
+        if (name != NULL) {
+            *name = newName;
+        }
+        return levelSearchValueInFloorList(agenda, newName);
+    } else {
+        FloorCell *temporary = agenda->ArrayOfCell[3];
+        FloorCell *previous = NULL;
+        if (temporary != NULL) {
+            for (int level = 3; level >= 0; --level) {
+                unsigned short stop = 0;
+                printf("Lettres possibles pour le niveau %d : ", level);
+                while (temporary != NULL && stop == 0) {
+                    printf("%c ", temporary->value->lastnameFirstname[3 - level]);
+                    temporary = temporary->arrayOfNexts[level];
+                    if (temporary != NULL && temporary->nbFloors > level + 1) {
+                        stop = 1;
+                    }
+                }
+                printf("\n");
+                do {
+                    do {
+                        printf("Entrer la lettre pour le niveau %d :", level);
+                        letter = scanString();
+                        toLowerCase(letter);
+                    } while (strlen(letter) != 1 || isDigit(letter));
+                    if (previous == NULL) {
+                        temporary = agenda->ArrayOfCell[level];
+                    } else {
+                        temporary = previous;
+                    }
+                    while (temporary != NULL && temporary->value->lastnameFirstname[3 - level] != letter[0]) {
+                        temporary = temporary->arrayOfNexts[level];
+                        previous = temporary;
+                    }
+                } while (temporary == NULL);
+            }
+
+
+            unsigned short stop = 0;
+            printf("noms possibles : ");
+            while (temporary != NULL && stop == 0) {
+                if (temporary->value->lastnameFirstname[3] == letter[0]) {
+                    printf("%s ", temporary->value->lastnameFirstname);
+                    temporary = temporary->arrayOfNexts[0];
+                    if ((temporary != NULL && temporary->nbFloors > 1)) {
+                        stop = 1;
+                    }
+                } else {
+                    stop = 1;
+                }
+            }
+            printf("\n");
+
+
+            printf("Entry name :");
+            newName = scanString();
+            toLowerCase(newName);
+            if (name != NULL) {
+                *name = newName;
+            }
+            return levelSearchValueInFloorList(agenda, newName);
+        }
+        return NULL;
+    }
+}
+
+void changeAutoComplete(unsigned short *autoComplete) {
+    if (*autoComplete == 0) {
+        *autoComplete = 1;
+        printf("auto complete is now active\n");
+    } else {
+        *autoComplete = 0;
+        printf("auto complete is now inactive\n");
+    }
+}
+
+void deleteMeet(ListOfFloorCells *agenda, unsigned short autoComplete) {
+    FloorCell *CellOfContact = searchInAgendaWithAutoCompletion(agenda, autoComplete, NULL);
     if (CellOfContact != NULL) {
         char *eventID;
         do {
-            printf("Entry event ID : ");
+            printf("Entry event ID :");
             eventID = scanString();
         } while (!isDigit(eventID) || convertStringToDigit(eventID) < 1);
         deleteEventInEventListWithId(&(CellOfContact->value->listOfEvent), convertStringToDigit(eventID));
@@ -48,11 +130,8 @@ void deleteMeet(ListOfFloorCells *agenda) {
     }
 }
 
-void viewContact(ListOfFloorCells *agenda) {
-    printf("Entry name : ");
-    char *name = scanString();
-    toLowerCase(name);
-    FloorCell *CellOfContact = classicSearchValueInFloorList(agenda, name);
+void viewContact(ListOfFloorCells *agenda, unsigned short autoComplete) {
+    FloorCell *CellOfContact = searchInAgendaWithAutoCompletion(agenda, autoComplete, NULL);
     if (CellOfContact != NULL) {
         displayContact(CellOfContact->value);
     } else {
@@ -60,11 +139,9 @@ void viewContact(ListOfFloorCells *agenda) {
     }
 }
 
-void addNewMeet(ListOfFloorCells *agenda) {
-    printf("Entry name : ");
-    char *name = scanString();
-    toLowerCase(name);
-    FloorCell *CellOfContact = classicSearchValueInFloorList(agenda, name);
+void addNewMeet(ListOfFloorCells *agenda, unsigned short autoComplete) {
+    char *name;
+    FloorCell *CellOfContact = searchInAgendaWithAutoCompletion(agenda, autoComplete, &name);
     if (CellOfContact != NULL) {
         printf("Contact exists - ");
         addEventToContact(CellOfContact->value);
@@ -79,9 +156,11 @@ void addNewMeet(ListOfFloorCells *agenda) {
 void help() {
     printf("viewContact\n");
     printf("viewAllContacts\n");
-    printf("searchContact \n");
     printf("createContact \n");
     printf("addNewMeet\n");
     printf("deleteMeet\n");
+    printf("saveAgenda\n");
+    printf("loadAgenda\n");
+    printf("autoComplete\n");
     printf("exit\n");
 }

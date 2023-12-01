@@ -55,7 +55,16 @@ void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
             newCell->arrayOfNexts[level] = list->ArrayOfCell[level];
             list->ArrayOfCell[level] = newCell;
         } else {
-            if (strcompByLevels(prev->value->lastnameFirstname, newCell->value->lastnameFirstname, 3 - level) != 0) {
+            if (level == 3 &&
+                strcompByLevels(prev->value->lastnameFirstname, newCell->value->lastnameFirstname, 3) == 0) {
+                newCell->nbFloors = 1;
+                newCell->arrayOfNexts = (FloorCell **) realloc(newCell->arrayOfNexts,
+                                                               newCell->nbFloors * sizeof(FloorCell *));
+                newCell->arrayOfNexts[0] = prev->arrayOfNexts[0];
+                prev->arrayOfNexts[0] = newCell;
+                level = -1;
+            } else if (strcompByLevels(prev->value->lastnameFirstname, newCell->value->lastnameFirstname, 3 - level) !=
+                       0) {
                 newCell->arrayOfNexts[level] = prev->arrayOfNexts[level];
                 prev->arrayOfNexts[level] = newCell;
             } else {
@@ -64,9 +73,9 @@ void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
                                                                newCell->nbFloors * sizeof(FloorCell *));
             }
         }
-        if (newCell->arrayOfNexts[level] != NULL && strcompByLevels(newCell->value->lastnameFirstname,
-                                                                    newCell->arrayOfNexts[level]->value->lastnameFirstname,
-                                                                    3 - level) == 0) {
+        if (level >= 0 && newCell->arrayOfNexts[level] != NULL && strcompByLevels(newCell->value->lastnameFirstname,
+                                                                                  newCell->arrayOfNexts[level]->value->lastnameFirstname,
+                                                                                  3 - level) == 0) {
             FloorCell *temp = newCell->arrayOfNexts[level];
             newCell->arrayOfNexts[level] = newCell->arrayOfNexts[level]->arrayOfNexts[level];
             temp->nbFloors--;
@@ -110,26 +119,34 @@ FloorCell *classicSearchValueInFloorList(ListOfFloorCells *list, char *name) {
 }
 
 FloorCell *levelSearchValueInFloorList(ListOfFloorCells *list, char *name) {
+    if (list == NULL || list->ArrayOfCell == NULL) {
+        return NULL;  // La liste est vide
+    }
+
     FloorCell *temporary = list->ArrayOfCell[list->nbFloors - 1];
     FloorCell *previous = NULL;
-    if (temporary == NULL) {
-        return NULL;
-    }
+
     for (int i = list->nbFloors - 1; i >= 0; --i) {
-        if (strcmp(temporary->value->lastnameFirstname, name) == 0) {
-            return temporary;
-        } else if (strcmp(name, temporary->value->lastnameFirstname) > 0) {
-            previous = temporary;
-            temporary = temporary->arrayOfNexts[i - 1];
-        } else {
-            if (previous == NULL) {
-                temporary = list->ArrayOfCell[i - 1];
+        while (temporary != NULL) {
+            if (strcmp(temporary->value->lastnameFirstname, name) == 0) {
+                return temporary;  // Le contact a été trouvé
+            } else if (strcmp(name, temporary->value->lastnameFirstname) > 0) {
+                previous = temporary;
+                temporary = temporary->arrayOfNexts[i];
             } else {
-                temporary = previous->arrayOfNexts[i - 1];
+                break;  // Arrête la recherche sur ce niveau
             }
         }
+
+        // Ajuste le point de départ pour le niveau inférieur
+        if (previous == NULL) {
+            temporary = list->ArrayOfCell[i - 1];
+        } else {
+            temporary = previous->arrayOfNexts[i - 1];
+        }
     }
-    return NULL;
+
+    return NULL;  // Le contact n'a pas été trouvé
 }
 
 void deleteFloorList(ListOfFloorCells *list) {

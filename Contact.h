@@ -4,6 +4,7 @@
 
 #ifndef PROJET_C_L2_3_CONTACT_H
 #define PROJET_C_L2_3_CONTACT_H
+#define MAX_BUFFER 100
 
 #include "Event.h"
 #include "string.h"
