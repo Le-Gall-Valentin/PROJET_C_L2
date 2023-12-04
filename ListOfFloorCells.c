@@ -42,8 +42,8 @@ int strcompByLevels(const char *str1, const char *str2, int index) {
 void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
     FloorCell *newCell = createFloorCell(contact, 4);
     int level = 3;
-    FloorCell *current;
-    FloorCell *prev;
+    FloorCell *current = NULL;
+    FloorCell *prev = NULL;
     while (level >= 0) {
         current = list->ArrayOfCell[level];
         prev = NULL;
@@ -55,7 +55,7 @@ void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
             newCell->arrayOfNexts[level] = list->ArrayOfCell[level];
             list->ArrayOfCell[level] = newCell;
         } else {
-            if (level == 3 &&
+            if (level == newCell->nbFloors - 1 &&
                 strcompByLevels(prev->value->lastnameFirstname, newCell->value->lastnameFirstname, 3) == 0) {
                 newCell->nbFloors = 1;
                 newCell->arrayOfNexts = (FloorCell **) realloc(newCell->arrayOfNexts,
@@ -73,9 +73,10 @@ void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
                                                                newCell->nbFloors * sizeof(FloorCell *));
             }
         }
-        if (level >= 0 && newCell->arrayOfNexts[level] != NULL && strcompByLevels(newCell->value->lastnameFirstname,
-                                                                                  newCell->arrayOfNexts[level]->value->lastnameFirstname,
-                                                                                  3 - level) == 0) {
+        if (level >= 0 && newCell->nbFloors - 1 >= level && newCell->arrayOfNexts[level] != NULL &&
+            strcompByLevels(newCell->value->lastnameFirstname,
+                            newCell->arrayOfNexts[level]->value->lastnameFirstname,
+                            3 - level) == 0) {
             FloorCell *temp = newCell->arrayOfNexts[level];
             newCell->arrayOfNexts[level] = newCell->arrayOfNexts[level]->arrayOfNexts[level];
             temp->nbFloors--;

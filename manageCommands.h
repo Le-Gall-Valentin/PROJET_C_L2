@@ -8,6 +8,7 @@
 #include "string.h"
 #include "stdio.h"
 #include "ListOfFloorCells.h"
+#include "manageJson.h"
 
 void makeCommand(char *command, unsigned short *state, unsigned short *autoComplete, ListOfFloorCells *agenda);
 

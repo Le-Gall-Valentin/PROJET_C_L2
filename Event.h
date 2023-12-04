@@ -26,4 +26,8 @@ void deleteEvent(Event *event);
 
 void deleteEventInEventListWithId(Event **list, unsigned int ID);
 
+Event *createEmptyEvent();
+
+void addEventInList(Event **eventList, Event *event);
+
 #endif //PROJET_C_L2_3_EVENT_H

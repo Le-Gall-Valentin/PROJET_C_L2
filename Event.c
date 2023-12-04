@@ -5,6 +5,18 @@
 #include "Event.h"
 
 
+void addEventInList(Event **eventList, Event *event) {
+    if (*eventList == NULL) {
+        *eventList = event;
+    } else {
+        Event *temporaryEvent = *eventList;
+        while (temporaryEvent->next != NULL) {
+            temporaryEvent = temporaryEvent->next;
+        }
+        temporaryEvent->next = event;
+    }
+}
+
 void displayEvent(Event *event) {
     printf("%d/%d/%d at %d:%d, %d minutes long\n", event->day, event->month, event->year, event->hour, event->minutes,
            event->event_time);
@@ -52,8 +64,11 @@ Event *createEvent() {
     Event *newEvent = (Event *) malloc(sizeof(Event));
 
     char *newEntry;
-    printf("enter new event (day/month/year hour/minutes time(minutes) :");
-    newEntry = scanString();
+    do {
+        printf("enter new event (day/month/year hour/minutes time(minutes) :");
+        newEntry = scanString();
+    } while (newEntry == NULL);
+
     StringArray event = splitStringToArray(newEntry, " ");
     if (event.size != 3) {
         deleteString(event);
@@ -96,8 +111,16 @@ Event *createEvent() {
     newEvent->event_time = convertStringToDigit(event.array[2]);
     deleteString(event);
 
-    printf("Add Description :");
-    newEvent->eventDescription = scanString();
+    do {
+        printf("Add Description :");
+        newEvent->eventDescription = scanString();
+    } while (newEvent->eventDescription == NULL);
+    newEvent->next = NULL;
+    return newEvent;
+}
+
+Event *createEmptyEvent() {
+    Event *newEvent = (Event *) malloc(sizeof(Event));
     newEvent->next = NULL;
     return newEvent;
 }

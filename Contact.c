@@ -15,6 +15,11 @@ Contact *entryOfContact() {
 
 
 Contact *createContact(char *name) {
+    for (int i = 0; i < strlen(name); ++i) {
+        if (name[i] == ' ') {
+            name[i] = '_';
+        }
+    }
     Contact *newContact = (Contact *) malloc(sizeof(Contact));
     newContact->lastnameFirstname = (char *) malloc(MAX_BUFFER * sizeof(char));
     strcpy(newContact->lastnameFirstname, name);

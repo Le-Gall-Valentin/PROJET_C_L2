@@ -95,10 +95,12 @@ char *scanString(void) {
 }
 
 void toLowerCase(char *string) {
-    unsigned long long size = strlen(string);
-    for (int i = 0; i < size; i++) {
-        if (string[i] <= 'Z' && string[i] >= 'A') {
-            string[i] = string[i] + 32;
+    if (string != NULL) {
+        unsigned long long size = strlen(string);
+        for (int i = 0; i < size; i++) {
+            if (string[i] <= 'Z' && string[i] >= 'A') {
+                string[i] = string[i] + 32;
+            }
         }
     }
 }

@@ -23,6 +23,10 @@ void makeCommand(char *command, unsigned short *state, unsigned short *autoCompl
     } else if (strcmp(command, "exit") == 0) {
         printf("Good Bye !");
         *state = 0;
+    } else if (strcmp(command, "loadagenda") == 0) {
+        loadAgenda(agenda);
+    } else if (strcmp(command, "saveagenda") == 0) {
+        saveAgenda(agenda);
     } else if (strcmp(command, "adminviewlist") == 0) {
         displayFloorList(agenda);
     } else if (strcmp(command, "autocomplete") == 0) {
@@ -37,8 +41,10 @@ FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned s
     char *newName;
     char *letter = NULL;
     if (autoComplete == 0) {
-        printf("Entry name :");
-        newName = scanString();
+        do {
+            printf("Entry name :");
+            newName = scanString();
+        } while (newName == NULL);
         toLowerCase(newName);
         if (name != NULL) {
             *name = newName;
@@ -49,10 +55,14 @@ FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned s
         FloorCell *previous = NULL;
         if (temporary != NULL) {
             for (int level = 3; level >= 0; --level) {
+                char temporaryLetter = -1;
                 unsigned short stop = 0;
                 printf("Lettres possibles pour le niveau %d : ", level);
                 while (temporary != NULL && stop == 0) {
-                    printf("%c ", temporary->value->lastnameFirstname[3 - level]);
+                    if (temporary->value->lastnameFirstname[3 - level] != temporaryLetter) {
+                        printf("%c ", temporary->value->lastnameFirstname[3 - level]);
+                        temporaryLetter = temporary->value->lastnameFirstname[3 - level];
+                    }
                     temporary = temporary->arrayOfNexts[level];
                     if (temporary != NULL && temporary->nbFloors > level + 1) {
                         stop = 1;
@@ -64,7 +74,7 @@ FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned s
                         printf("Entrer la lettre pour le niveau %d :", level);
                         letter = scanString();
                         toLowerCase(letter);
-                    } while (strlen(letter) != 1 || isDigit(letter));
+                    } while (letter == NULL || ((strlen(letter) != 1) || isDigit(letter)));
                     if (previous == NULL) {
                         temporary = agenda->ArrayOfCell[level];
                     } else {
