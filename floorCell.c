@@ -7,6 +7,7 @@
 
 
 FloorCell *createFloorCell(unsigned long long value, int nbFloors) {
+    // Initialise une new cell avec les valeurs données en parramètre
     FloorCell *newFloorCell = (FloorCell *) malloc(sizeof(FloorCell));
     newFloorCell->value = value;
     newFloorCell->nbFloors = nbFloors;
