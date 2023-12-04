@@ -115,7 +115,7 @@ void displayFloorList(ListOfFloorCells *list) {
 }
 
 FloorCell *classicSearchValueInFloorList(ListOfFloorCells *list, char *name) {
-    //
+    //Cherche une valeur de manièere classic c'est à dire en parcourant la couche 0
     FloorCell *temporaryCell = list->ArrayOfCell[0];
     if (temporaryCell == NULL) {
         return NULL;
@@ -130,19 +130,20 @@ FloorCell *classicSearchValueInFloorList(ListOfFloorCells *list, char *name) {
 }
 
 FloorCell *levelSearchValueInFloorList(ListOfFloorCells *list, char *name) {
+    // Fonction de recherche de valeur optimisé
     if (list == NULL || list->ArrayOfCell == NULL) {
         return NULL;  // La liste est vide
     }
 
     FloorCell *temporary = list->ArrayOfCell[list->nbFloors - 1];
     FloorCell *previous = NULL;
-
+    
     for (int i = list->nbFloors - 1; i >= 0; --i) {
         while (temporary != NULL) {
             if (strcmp(temporary->value->lastnameFirstname, name) == 0) {
                 return temporary;  // Le contact a été trouvé
             } else if (strcmp(name, temporary->value->lastnameFirstname) > 0) {
-                previous = temporary;
+                previous = temporary; // si ma valeur est plus grande alors on avance
                 temporary = temporary->arrayOfNexts[i];
             } else {
                 break;  // Arrête la recherche sur ce niveau
@@ -153,6 +154,7 @@ FloorCell *levelSearchValueInFloorList(ListOfFloorCells *list, char *name) {
         if (previous == NULL) {
             temporary = list->ArrayOfCell[i - 1];
         } else {
+            // On reprend la recherche sur le niveau suivant depuis la valeur prev
             temporary = previous->arrayOfNexts[i - 1];
         }
     }
@@ -161,6 +163,7 @@ FloorCell *levelSearchValueInFloorList(ListOfFloorCells *list, char *name) {
 }
 
 void deleteFloorList(ListOfFloorCells *list) {
+    // supprime une FloorList de contat
     FloorCell *previous = NULL;
     FloorCell *temporary = list->ArrayOfCell[0];
     while (temporary != NULL) {
@@ -173,6 +176,7 @@ void deleteFloorList(ListOfFloorCells *list) {
 }
 
 void displayAllValues(ListOfFloorCells *list) {
+    //affiche toutes les valeurs de la list de contact
     FloorCell *temporary = list->ArrayOfCell[0];
     while (temporary != NULL) {
         printf("%s ", temporary->value->lastnameFirstname);
