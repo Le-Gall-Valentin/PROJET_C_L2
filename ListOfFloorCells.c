@@ -46,7 +46,7 @@ void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, 
             current = current->arrayOfNexts[level];
         }
         if (prev == NULL) {
-            //Exemple si il n'y a que une valeur sur le level et qu'on ajoute entre cette valeur et la list
+            //Exemple si il n'y a qu'une valeur sur le level et qu'on ajoute entre cette valeur et la list
             //le prev reste au début de la list
             newCell->arrayOfNexts[level] = list->ArrayOfCell[level];
             list->ArrayOfCell[level] = newCell;
@@ -57,13 +57,13 @@ void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, 
             //la cell precedente pointe sur la nouvelle
             prev->arrayOfNexts[level] = newCell;
         }
-        //on descend d'un level pour faire tous les levls
+        //on descend d'un level pour faire tous les levels
     }
 }
 
 
 void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor) {
-    // Cette fonction permet d'afficher une hauteur spécifié en paramètre 
+    // Cette fonction permet d'afficher une hauteur spécifiée en paramètre 
     if (floor <= list->nbFloors - 1) {
         printf("[list head_%d @-]", floor - 1);
         FloorCell *temporaryCell = list->ArrayOfCell[floor];
@@ -78,13 +78,13 @@ void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor) {
 }
 
 void displayFloorList(ListOfFloorCells *list) {
-    // Cette fonction permet d'afficher toute la liste de façons à se que chaque céllule de chaque hauteur soit alignées
+    // Cette fonction permet d'afficher toute la liste de façon à ce que chaque cellule de chaque hauteur soit alignées
     for (int i = 0; i < list->nbFloors; ++i) {
         printf("[list head_%d @-]", i);
         FloorCell *temporaryCellFloorI = list->ArrayOfCell[i];
         FloorCell *temporaryCellFloor0 = list->ArrayOfCell[0];
         while (temporaryCellFloor0 != NULL) {
-            // Si la cellule première cellue de la hauteur i est la même que la cellule de hauteur 0
+            // Si la cellule première cellule de la hauteur i est la même que la cellule de hauteur 0
             if (temporaryCellFloor0 == temporaryCellFloorI) {
                 printf("-->");
                 // Affichage de la Cell
@@ -114,7 +114,7 @@ ListOfFloorCells *createSortedListWithNValues(int n) {
 
 int classicSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value) {
     FloorCell *temporaryCell = list->ArrayOfCell[0];
-    // Tant qu'on arrive pas à la fin de la liste ou que nous n'avons pas trouvé la valeur cherché
+    // Tant qu'on arrive pas à la fin de la liste ou que nous n'avons pas trouvé la valeur cherchée
     while (temporaryCell->arrayOfNexts[0] != NULL && temporaryCell->value != value) {
         temporaryCell = temporaryCell->arrayOfNexts[0];
     }
@@ -132,7 +132,7 @@ int levelSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value
     for (int i = list->nbFloors - 1; i >= 0; --i) {
         if (temporary->value == value) {
             return 1;
-        //Si ma valeur cherché est plus grande alorsje vais à droite 
+        //Si ma valeur cherchée est plus grande alors je vais à droite 
         } else if (value > temporary->value) {
             previous = temporary;
             temporary = temporary->arrayOfNexts[i - 1];
