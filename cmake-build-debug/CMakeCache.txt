@@ -128,7 +128,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=PROJET_C_L2
+CMAKE_PROJECT_NAME:STATIC=PROJET_C_L2_1
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/ranlib.exe
@@ -209,6 +209,123 @@ CMAKE_STRIP:FILEPATH=C:/Program Files/JetBrains/CLion 2022.3.1/bin/mingw/bin/str
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Value Computed by CMake
+PROJET_C_L2_10_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_10_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_10_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_11_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_11_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_11_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_12_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_12_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_12_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_13_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_13_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_13_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_1_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_1_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_1_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_2_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_2_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_2_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_3_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_3_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_3_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_4_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_4_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_4_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_5_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_5_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_5_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_6_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_6_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_6_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_7_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_7_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_7_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_8_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_8_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_8_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
+
+//Value Computed by CMake
+PROJET_C_L2_9_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
+
+//Value Computed by CMake
+PROJET_C_L2_9_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+PROJET_C_L2_9_SOURCE_DIR:STATIC=D:/Project Directory C/PROJET-C-L2
 
 //Value Computed by CMake
 PROJET_C_L2_BINARY_DIR:STATIC=D:/Project Directory C/PROJET-C-L2/cmake-build-debug
