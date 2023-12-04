@@ -9,7 +9,7 @@ ListOfFloorCells *createEmptyFloorList(int nbFloors) {
     ListOfFloorCells *newFloorList = (ListOfFloorCells *) malloc(sizeof(ListOfFloorCells));
     //ArrayOfCell est un tableau des 1er next de la taille nbfloor.
     newFloorList->ArrayOfCell = createArrayOfNexts(nbFloors);
-    // on set le parametre nbfloor
+    // on initialise le parametre nbfloor
     newFloorList->nbFloors = nbFloors;
     return newFloorList;
 }
@@ -28,6 +28,7 @@ void addHeadFloorList(ListOfFloorCells *list, Contact *contact, int nbFloors) {
 }
 
 int strcompByLevels(const char *str1, const char *str2, int index) {
+    // compare deux caractères et renvoie un entier correspondant à chaque cas
     for (int i = 0; i <= index; ++i) {
         if (str1[i] > str2[i]) {
             return 1;
@@ -38,23 +39,30 @@ int strcompByLevels(const char *str1, const char *str2, int index) {
     return 0;
 }
 
-// Fonction pour ajouter un contact trié dans la liste à étages
+
 void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
+    // Fonction pour ajouter un contact trié dans la liste à étages
     FloorCell *newCell = createFloorCell(contact, 4);
+    // level maximal imposé par le TP
     int level = 3;
     FloorCell *current = NULL;
     FloorCell *prev = NULL;
     while (level >= 0) {
+        // on se met sur le niveau level et current prend la première cellules de ce niveau
         current = list->ArrayOfCell[level];
         prev = NULL;
+        // tant que le nom du contact est plus grand que celui du curent
         while (current != NULL && strcmp(current->value->lastnameFirstname, contact->lastnameFirstname) < 0) {
+            // on avance current vers la droite sur le meme niveau et previous prend la valeurs précédente
             prev = current;
             current = current->arrayOfNexts[level];
         }
         if (prev == NULL) {
+            //si le prev est nulle alors c'est que ma nouvelle cellule est la première du niveau
             newCell->arrayOfNexts[level] = list->ArrayOfCell[level];
             list->ArrayOfCell[level] = newCell;
         } else {
+            // si les 4 premières lettres sont équivalentes alors on modifie la taille de nbFloor à 1 et on ajoute après prev
             if (level == newCell->nbFloors - 1 &&
                 strcompByLevels(prev->value->lastnameFirstname, newCell->value->lastnameFirstname, 3) == 0) {
                 newCell->nbFloors = 1;
@@ -87,6 +95,7 @@ void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
 }
 
 void displayFloorList(ListOfFloorCells *list) {
+    //Affiche la liste à niveau en ne montrant que les noms
     for (int i = 0; i < list->nbFloors; ++i) {
         printf("[list head_%d @-]", i);
         FloorCell *temporaryCellFloorI = list->ArrayOfCell[i];
@@ -106,6 +115,7 @@ void displayFloorList(ListOfFloorCells *list) {
 }
 
 FloorCell *classicSearchValueInFloorList(ListOfFloorCells *list, char *name) {
+    //
     FloorCell *temporaryCell = list->ArrayOfCell[0];
     if (temporaryCell == NULL) {
         return NULL;
