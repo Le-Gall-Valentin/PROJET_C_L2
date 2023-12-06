@@ -20,7 +20,7 @@ void addHeadFloorList(ListOfFloorCells *list, unsigned long long value, int nbFl
     // On initialise une nouvelle floorCell
     FloorCell *newCell = createFloorCell(value, nbFloors);
     for (int i = 0; i < nbFloors; ++i) {
-        //initialise tous les pointeur du tableu de nexte de la nouvelle Cell avec les pointeur vers quoi pointer la liste
+        //initialise tous les pointeurs du tableu de next de la nouvelle Cell avec les pointeurs vers quoi pointe la liste
         newCell->arrayOfNexts[i] = list->ArrayOfCell[i];
     }
     for (int i = 0; i < nbFloors; i++) {
@@ -35,12 +35,12 @@ void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, 
     //initialise deux FloorCell temporaire
     FloorCell *current = NULL;
     FloorCell *prev = NULL;
-    //Parcour de l'étage le plus haut vers le plus bas
+    //Parcours de l'étage le plus haut vers le plus bas
     for (int level = nbFloors - 1; level >= 0; --level) {
         //current point sur la valeurs pointée par la liste
         current = list->ArrayOfCell[level];
         prev = NULL;
-        //parcours tant que la valeurs de current n'est pas NULL (fin de la liste) ou que current ne rencontre pas de valeurs plus grandes
+        //parcours tant que la valeur de current n'est pas NULL (fin de la liste) ou que current ne rencontre pas de valeurs plus grandes
         while (current != NULL && current->value < value) {
             prev = current;
             current = current->arrayOfNexts[level];
@@ -67,7 +67,7 @@ void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor) {
     if (floor <= list->nbFloors - 1) {
         printf("[list head_%d @-]", floor - 1);
         FloorCell *temporaryCell = list->ArrayOfCell[floor];
-        // Parcour jusqu'à se que le temp arrive à NULL
+        // Parcours jusqu'à se que le temp arrive à NULL
         while (temporaryCell != NULL) {
             printf("-->");
             displayFloorCell(temporaryCell);
