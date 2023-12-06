@@ -6,7 +6,7 @@
 
 
 void addEventInList(Event **eventList, Event *event) {
-    //ajoute un évennement à une liste chainée d'évenement
+    //ajoute un évennement à une liste chainée d'événement
     if (*eventList == NULL) {
         *eventList = event;
     } else {
@@ -19,14 +19,14 @@ void addEventInList(Event **eventList, Event *event) {
 }
 
 void displayEvent(Event *event) {
-    //affiche les caractéristiques d'un évennements
+    //affiche les caractéristiques d'un événement
     printf("%d/%d/%d at %d:%d, %d minutes long\n", event->day, event->month, event->year, event->hour, event->minutes,
            event->event_time);
     printf("%s\n", event->eventDescription);
 }
 
 void displayListOfEvents(Event *list) {
-    // Affiche tous les évennement d'une liste chainé d'évennement 
+    // Affiche tous les évènements d'une liste chainée d'événement 
     unsigned int eventId = 1;
     Event *temporaryEvent = list;
     while (temporaryEvent != NULL) {
@@ -38,7 +38,7 @@ void displayListOfEvents(Event *list) {
 }
 
 void deleteEventInEventListWithId(Event **list, unsigned int ID) {
-    // supprime un évennement d'une liste chainé d'évennement 
+    // supprime un événement d'une liste chainé d'événement 
     Event *temporary = *list;
     Event *previous = NULL;
     if (*list != NULL) {
@@ -47,14 +47,14 @@ void deleteEventInEventListWithId(Event **list, unsigned int ID) {
             *list = (*list)->next;
             free(temporary);
         } else {
-            // parcours tant que nous ne sommes pas au bout de la liste d'évennement ou que index != ID
+            // parcours tant que nous ne sommes pas au bout de la liste d'événement ou que index != ID
             while (temporary != NULL && index != ID) {
                 previous = temporary;
                 temporary = temporary->next;
                 index++;
             }
             if (temporary != NULL) {
-                // il y a bien un évennement avec l'ID alors on le supprime 
+                // il y a bien un événement avec l'ID alors on le supprime 
                 previous->next = temporary->next;
                 deleteEvent(temporary);
             }
@@ -67,7 +67,7 @@ void deleteEvent(Event *event) {
 }
 
 Event *createEvent() {
-    // créé un nouvel évennement et initialises toutes ses valeurs
+    // créé un nouvel événement et initialises toutes ses valeurs
     Event *newEvent = (Event *) malloc(sizeof(Event));
 
     char *newEntry;
@@ -127,7 +127,7 @@ Event *createEvent() {
 }
 
 Event *createEmptyEvent() {
-    // initialise un évennement nulle 
+    // initialise un événement nul
     Event *newEvent = (Event *) malloc(sizeof(Event));
     newEvent->next = NULL;
     return newEvent;
