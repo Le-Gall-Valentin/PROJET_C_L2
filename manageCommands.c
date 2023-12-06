@@ -40,7 +40,7 @@ void makeCommand(char *command, unsigned short *state, unsigned short *autoCompl
 
 FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned short autoComplete, char **name) {
 
-    // Fonction D'auto complétion qui peut etre activé ou non. La fonction affiche toutes les nom qui commencent par la premieres lettres et ainsi de suite pour les 4 premières lettres
+    // Fonction D'auto complétion qui peut etre activée ou non. La fonction affiche tous les noms qui commencent par la premieres lettres et ainsi de suite pour les 4 premières lettres
     char *newName;
     char *letter = NULL;
     if (autoComplete == 0) {
