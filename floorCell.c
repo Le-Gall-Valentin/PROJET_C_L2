@@ -7,7 +7,7 @@
 
 
 FloorCell *createFloorCell(unsigned long long value, int nbFloors) {
-    // Initialise une new cell avec les valeurs données en parramètre
+    // Initialise une new cell avec les valeurs données en paramètre
     FloorCell *newFloorCell = (FloorCell *) malloc(sizeof(FloorCell));
     newFloorCell->value = value;
     newFloorCell->nbFloors = nbFloors;
@@ -25,7 +25,7 @@ FloorCell **createArrayOfNexts(int nbFloors) {
 }
 
 int isEmptyArrayOfFloorCell(FloorCell **ArrayOfFloorCell, int size) {
-    // Test toutes les cases dutableau vérifiant si elles sont nulles
+    // Test toutes les cases du tableau vérifiant si elles sont nulles
     for (int i = 0; i < size; i++) {
         if (ArrayOfFloorCell[i] != NULL) {
             return 0;
@@ -42,6 +42,6 @@ void deleteFloorCell(FloorCell *floorCell) {
 }
 
 void displayFloorCell(FloorCell *floorCell) {
-    // Affiche la veleur de la Cell
+    // Affiche la valeur de la Cell
     printf("[ %lld|@ ]", floorCell->value);
 }
