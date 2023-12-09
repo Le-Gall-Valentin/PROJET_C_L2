@@ -7,8 +7,10 @@
 Contact *entryOfContact() {
     char *name;
     Contact *contact;
-    printf("insert lastname_firstname :");
-    name = scanString();
+    do {
+        printf("insert lastname_firstname :");
+        name = scanString();
+    } while (name == NULL);
     contact = createContact(name);
     return contact;
 };

@@ -57,7 +57,7 @@ FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned s
             for (int level = 3; level >= 0; --level) {
                 char temporaryLetter = -1;
                 unsigned short stop = 0;
-                printf("Lettres possibles pour le niveau %d : ", level);
+                printf("Possible letters for the level %d : ", level);
                 while (temporary != NULL && stop == 0) {
                     if (temporary->value->lastnameFirstname[3 - level] != temporaryLetter) {
                         printf("%c ", temporary->value->lastnameFirstname[3 - level]);
@@ -71,7 +71,7 @@ FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned s
                 printf("\n");
                 do {
                     do {
-                        printf("Entrer la lettre pour le niveau %d :", level);
+                        printf("Enter the letter for the level %d :", level);
                         letter = scanString();
                         toLowerCase(letter);
                     } while (letter == NULL || ((strlen(letter) != 1) || isDigit(letter)));
@@ -89,7 +89,7 @@ FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned s
 
 
             unsigned short stop = 0;
-            printf("noms possibles : ");
+            printf("possible names : ");
             while (temporary != NULL && stop == 0) {
                 if (temporary->value->lastnameFirstname[3] == letter[0]) {
                     printf("%s ", temporary->value->lastnameFirstname);
