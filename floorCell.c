@@ -7,31 +7,33 @@
 
 
 FloorCell *createFloorCell(Contact *contact, int nbFloors) {
-    // Initialise une new cell avec les valeurs données en parramètre
+    // Alloue de la mémoire pour la nouvelle structure FloorCell
     FloorCell *newFloorCell = (FloorCell *) malloc(sizeof(FloorCell));
+
+    // Initialise le champ value avec le contact fourni
     newFloorCell->value = contact;
+
+    // Initialise le nombre d'étages de la cellule
     newFloorCell->nbFloors = nbFloors;
+
+    // Initialise le tableau de pointeurs vers les cellules suivantes
     newFloorCell->arrayOfNexts = createArrayOfNexts(nbFloors);
+
+    // Retourne la nouvelle cellule créée
     return newFloorCell;
 }
 
 FloorCell **createArrayOfNexts(int nbFloors) {
-    // initialise le tableau de next à NULL d'une taille nbFloor
+    // Alloue de la mémoire pour le tableau de pointeurs vers les cellules suivantes
     FloorCell **ArrayOfNext = (FloorCell **) malloc(nbFloors * sizeof(FloorCell *));
+
+    // Initialise chaque élément du tableau à NULL
     for (int i = 0; i < nbFloors; i++) {
         ArrayOfNext[i] = NULL;
     }
-    return ArrayOfNext;
-}
 
-int isEmptyArrayOfFloorCell(FloorCell **ArrayOfFloorCell, int size) {
-    // Test toutes les cases dutableau vérifiant si elles sont nulles
-    for (int i = 0; i < size; i++) {
-        if (ArrayOfFloorCell[i] != NULL) {
-            return 0;
-        }
-    }
-    return 1;
+    // Retourne le tableau de pointeurs initialisé
+    return ArrayOfNext;
 }
 
 void deleteFloorCell(FloorCell *floorCell) {
@@ -41,13 +43,6 @@ void deleteFloorCell(FloorCell *floorCell) {
 }
 
 void displayFloorCellName(FloorCell *floorCell) {
-    // Affiche le nom d'une FloorCell
+    // Affiche le nom et prénom du contact associé à la cellule
     printf("[ %s|@ ]", floorCell->value->lastnameFirstname);
-}
-
-void displayFloorCellAllInformations(FloorCell *floorCell) {
-    // Affiche toutes les infos d'un contact
-    if (floorCell != NULL) {
-        displayContact(floorCell->value);
-    }
 }

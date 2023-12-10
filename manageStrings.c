@@ -112,3 +112,19 @@ void printGapChar(char *name) {
     }
     printf("---------");
 }
+
+int strcompByLevels(const char *str1, const char *str2, int index) {
+    // Parcourt les caractères jusqu'à l'index spécifié
+    for (int i = 0; i <= index; ++i) {
+        // Compare les caractères à la position i dans les deux chaînes
+        if (str1[i] > str2[i]) {
+            // Si le caractère dans str1 est plus grand, retourne 1
+            return 1;
+        } else if (str1[i] < str2[i]) {
+            // Si le caractère dans str2 est plus grand, retourne -1
+            return -1;
+        }
+    }
+    // Si toutes les comparaisons jusqu'à l'index spécifié sont égales, retourne 0
+    return 0;
+}

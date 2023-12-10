@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: PROJET_C_L2_1
+# Project: PROJET_C_L2
 # Configurations: Debug
 # =============================================================================
 
@@ -41,91 +41,79 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = D$:/Project$ Directory$ C/PROJET-C-L2/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target PROJET_C_L2_1
+# Object build statements for EXECUTABLE target PROJET_C_L2
 
 
 #############################################
-# Order-only phony target for PROJET_C_L2_1
+# Order-only phony target for PROJET_C_L2
 
-build cmake_object_order_depends_target_PROJET_C_L2_1: phony || CMakeFiles/PROJET_C_L2_1.dir
+build cmake_object_order_depends_target_PROJET_C_L2: phony || CMakeFiles/PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/main.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/main.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\main.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/main.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/main.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\main.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/ListOfFloorCells.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/ListOfFloorCells.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\ListOfFloorCells.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/ListOfFloorCells.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/ListOfFloorCells.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\ListOfFloorCells.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/floorCell.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/floorCell.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\floorCell.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/floorCell.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/floorCell.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\floorCell.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/timer.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/timer.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\timer.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/manageStrings.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageStrings.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\manageStrings.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/manageInts.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageInts.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\manageInts.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/Contact.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/Contact.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\Contact.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/manageStrings.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageStrings.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\manageStrings.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/Event.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/Event.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\Event.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/Contact.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/Contact.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\Contact.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/manageCommands.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageCommands.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\manageCommands.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
-build CMakeFiles/PROJET_C_L2_1.dir/Event.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/Event.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\Event.c.obj.d
+build CMakeFiles/PROJET_C_L2.dir/manageJson.c.obj: C_COMPILER__PROJET_C_L2_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageJson.c || cmake_object_order_depends_target_PROJET_C_L2
+  DEP_FILE = CMakeFiles\PROJET_C_L2.dir\manageJson.c.obj.d
   FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
-
-build CMakeFiles/PROJET_C_L2_1.dir/manageCommands.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageCommands.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\manageCommands.c.obj.d
-  FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
-
-build CMakeFiles/PROJET_C_L2_1.dir/manageJson.c.obj: C_COMPILER__PROJET_C_L2_1_Debug D$:/Project$ Directory$ C/PROJET-C-L2/manageJson.c || cmake_object_order_depends_target_PROJET_C_L2_1
-  DEP_FILE = CMakeFiles\PROJET_C_L2_1.dir\manageJson.c.obj.d
-  FLAGS = -g -fdiagnostics-color=always -std=gnu99
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
-  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
+  OBJECT_FILE_DIR = CMakeFiles\PROJET_C_L2.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target PROJET_C_L2_1
+# Link build statements for EXECUTABLE target PROJET_C_L2
 
 
 #############################################
-# Link the executable PROJET_C_L2_1.exe
+# Link the executable PROJET_C_L2.exe
 
-build PROJET_C_L2_1.exe: C_EXECUTABLE_LINKER__PROJET_C_L2_1_Debug CMakeFiles/PROJET_C_L2_1.dir/main.c.obj CMakeFiles/PROJET_C_L2_1.dir/ListOfFloorCells.c.obj CMakeFiles/PROJET_C_L2_1.dir/floorCell.c.obj CMakeFiles/PROJET_C_L2_1.dir/timer.c.obj CMakeFiles/PROJET_C_L2_1.dir/manageInts.c.obj CMakeFiles/PROJET_C_L2_1.dir/manageStrings.c.obj CMakeFiles/PROJET_C_L2_1.dir/Contact.c.obj CMakeFiles/PROJET_C_L2_1.dir/Event.c.obj CMakeFiles/PROJET_C_L2_1.dir/manageCommands.c.obj CMakeFiles/PROJET_C_L2_1.dir/manageJson.c.obj
+build PROJET_C_L2.exe: C_EXECUTABLE_LINKER__PROJET_C_L2_Debug CMakeFiles/PROJET_C_L2.dir/main.c.obj CMakeFiles/PROJET_C_L2.dir/ListOfFloorCells.c.obj CMakeFiles/PROJET_C_L2.dir/floorCell.c.obj CMakeFiles/PROJET_C_L2.dir/manageStrings.c.obj CMakeFiles/PROJET_C_L2.dir/Contact.c.obj CMakeFiles/PROJET_C_L2.dir/Event.c.obj CMakeFiles/PROJET_C_L2.dir/manageCommands.c.obj CMakeFiles/PROJET_C_L2.dir/manageJson.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\PROJET_C_L2_1.dir
+  OBJECT_DIR = CMakeFiles\PROJET_C_L2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = PROJET_C_L2_1.exe
-  TARGET_IMPLIB = libPROJET_C_L2_1.dll.a
-  TARGET_PDB = PROJET_C_L2_1.exe.dbg
+  TARGET_FILE = PROJET_C_L2.exe
+  TARGET_IMPLIB = libPROJET_C_L2.dll.a
+  TARGET_PDB = PROJET_C_L2.exe.dbg
 
 
 #############################################
@@ -153,7 +141,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build PROJET_C_L2_1: phony PROJET_C_L2_1.exe
+build PROJET_C_L2: phony PROJET_C_L2.exe
 
 # =============================================================================
 # Folder targets.
@@ -163,7 +151,7 @@ build PROJET_C_L2_1: phony PROJET_C_L2_1.exe
 #############################################
 # Folder: D:/Project Directory C/PROJET-C-L2/cmake-build-debug
 
-build all: phony PROJET_C_L2_1.exe
+build all: phony PROJET_C_L2.exe
 
 # =============================================================================
 # Built-in targets

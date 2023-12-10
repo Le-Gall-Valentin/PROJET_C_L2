@@ -13,8 +13,8 @@
 #include "manageString.h"
 
 typedef struct contact {
-    char *lastnameFirstname;
-    Event *listOfEvent;
+    char *lastnameFirstname;  // Nom et prénom du contact
+    Event *listOfEvent;        // Liste d'événements associés au contact
 } Contact;
 
 void addEventToContact(Contact *contact);
