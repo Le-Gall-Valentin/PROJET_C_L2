@@ -59,7 +59,7 @@ void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, 
 
 void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor) {
     if (floor <= list->nbFloors - 1) {
-        printf("[list head_%d @-]", floor - 1);
+        printf("[list head_%d @-]", floor);
         FloorCell *temporaryCell = list->ArrayOfCell[floor];
         while (temporaryCell != NULL) {
             printf("-->");
