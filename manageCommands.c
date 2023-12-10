@@ -6,6 +6,7 @@
 
 
 void makeCommand(char *command, unsigned short *state, unsigned short *autoComplete, ListOfFloorCells *agenda) {
+    // Gestions des commandes du menu
     printf("\n");
 
     // Convertit la commande en minuscules pour rendre la comparaison insensible à la casse
@@ -54,6 +55,8 @@ void makeCommand(char *command, unsigned short *state, unsigned short *autoCompl
 
 
 FloorCell *searchInAgendaWithAutoCompletion(ListOfFloorCells *agenda, unsigned short autoComplete, char **name) {
+
+    // Fonction D'auto complétion qui peut etre activée ou non. La fonction affiche tous les noms qui commencent par la premieres lettres et ainsi de suite pour les 4 premières lettres
     char *newName;
     char *letter = NULL;
 

@@ -37,6 +37,7 @@ FloorCell **createArrayOfNexts(int nbFloors) {
 }
 
 void deleteFloorCell(FloorCell *floorCell) {
+    //Supprime une FloorCell
     free(floorCell->arrayOfNexts);
     free(floorCell);
 }

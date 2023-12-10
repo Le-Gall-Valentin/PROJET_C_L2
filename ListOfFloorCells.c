@@ -47,15 +47,18 @@ void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
 
         // Parcourt la liste jusqu'à trouver la position appropriée pour la nouvelle cellule
         while (current != NULL && strcmp(current->value->lastnameFirstname, contact->lastnameFirstname) < 0) {
+            // on avance current vers la droite sur le meme niveau et previous prend la valeurs précédente
             prev = current;
             current = current->arrayOfNexts[level];
         }
 
         // Insertion de la nouvelle cellule à la position trouvée
         if (prev == NULL) {
+            //si le prev est nulle alors c'est que ma nouvelle cellule est la première du niveau
             newCell->arrayOfNexts[level] = list->ArrayOfCell[level];
             list->ArrayOfCell[level] = newCell;
         } else {
+            // si les 4 premières lettres sont équivalentes alors on modifie la taille de nbFloor à 1 et on ajoute après prev
             if (level == newCell->nbFloors - 1 &&
                 strcompByLevels(prev->value->lastnameFirstname, newCell->value->lastnameFirstname, 3) == 0) {
                 // Cas spécial : fusionne les cellules si le prédecesseur et le nouveau contact ont le même préfixe jusqu'au niveau 3
@@ -91,6 +94,7 @@ void addSortedCellInFloorList(ListOfFloorCells *list, Contact *contact) {
 
 
 void displayFloorList(ListOfFloorCells *list) {
+    //Affiche la liste à niveau en ne montrant que les noms
     for (int i = 0; i < list->nbFloors; ++i) {
         printf("[list head_%d @-]", i);
         FloorCell *temporaryCellFloorI = list->ArrayOfCell[i];
@@ -117,6 +121,7 @@ void displayFloorList(ListOfFloorCells *list) {
 
 
 FloorCell *classicSearchValueInFloorList(ListOfFloorCells *list, char *name) {
+    //Cherche une valeur de manièere classic c'est à dire en parcourant la couche 0
     FloorCell *temporaryCell = list->ArrayOfCell[0];
     if (temporaryCell == NULL) {
         return NULL;
@@ -159,6 +164,7 @@ FloorCell *levelSearchValueInFloorList(ListOfFloorCells *list, char *name) {
         if (previous == NULL) {
             temporary = list->ArrayOfCell[i - 1];
         } else {
+            // On reprend la recherche sur le niveau suivant depuis la valeur prev
             temporary = previous->arrayOfNexts[i - 1];
         }
     }
@@ -169,6 +175,7 @@ FloorCell *levelSearchValueInFloorList(ListOfFloorCells *list, char *name) {
 
 
 void deleteFloorList(ListOfFloorCells *list) {
+    // supprime une FloorList de contat
     FloorCell *previous = NULL;
     FloorCell *temporary = list->ArrayOfCell[0];
 
@@ -189,6 +196,7 @@ void deleteFloorList(ListOfFloorCells *list) {
 }
 
 void displayAllValues(ListOfFloorCells *list) {
+    //affiche toutes les valeurs de la list de contact
     FloorCell *temporary = list->ArrayOfCell[0];
 
     // Parcourt la liste d'étages

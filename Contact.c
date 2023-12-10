@@ -5,6 +5,7 @@
 #include "Contact.h"
 
 Contact *entryOfContact() {
+    // initialise le nom d'un contact
     char *name;
     Contact *contact;
 
