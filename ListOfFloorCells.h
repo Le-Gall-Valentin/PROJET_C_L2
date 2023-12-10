@@ -10,8 +10,8 @@
 #include "manageInts.h"
 
 typedef struct ListOfFloorCells {
-    FloorCell **ArrayOfCell;
-    int nbFloors;
+    FloorCell **ArrayOfCell;  // Tableau de pointeurs vers les premières cellules
+    int nbFloors;             // Nombre d'étages dans la liste
 } ListOfFloorCells;
 
 ListOfFloorCells *createEmptyFloorList(int nbFloors);
@@ -23,12 +23,6 @@ void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, 
 void displayFloorList(ListOfFloorCells *list);
 
 void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor);
-
-ListOfFloorCells *createSortedListWithNValues(int n);
-
-int classicSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value);
-
-int levelSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value);
 
 void deleteFloorList(ListOfFloorCells *list);
 

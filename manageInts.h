@@ -12,8 +12,4 @@ void printGap(unsigned long long value);
 
 int lenOfInt(unsigned long long value);
 
-unsigned long long getLongRandomNumber();
-
-unsigned int nbDivideBy2(int value);
-
 #endif //PROJET_C_L2_3_MANAGEINTS_H

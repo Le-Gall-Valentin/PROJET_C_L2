@@ -1,38 +1,7 @@
 #include <stdio.h>
 #include "ListOfFloorCells.h"
-#include "timer.h"
-#include "string.h"
 
 int main() {
-//    srand(time(NULL));
-//    for (int i = 1; i <= 25; ++i) {
-//        FILE *f = freopen("classic2.txt", "a", stdout);
-//        ListOfFloorCells *myList = createSortedListWithNValues(i);
-//        printf("%d; ", i);
-//
-//        startTimer();
-//        for (int j = 0; j < 10000; ++j) {
-//            unsigned long long searchValue = (getLongRandomNumber() % (((unsigned long long) pow(2, i)) - 1)) + 1;
-//            classicSearchValueInFloorList(myList, searchValue);
-//        }
-//        stopTimer();
-//        printf("%s\n", getTimeAsString());
-//        fclose(f);
-//
-//        FILE *f2 = freopen("levels2.txt", "a", stdout);
-//        printf("%d; ", i);
-//
-//        startTimer();
-//        for (int j = 0; j < 10000; ++j) {
-//            unsigned long long searchValue = (getLongRandomNumber() % (((unsigned long long) pow(2, i)) - 1)) + 1;
-//            levelSearchValueInFloorList(myList, searchValue);
-//        }
-//        stopTimer();
-//        stopTimer();
-//        printf("%s\n", getTimeAsString());
-//        fclose(f2);
-//        deleteFloorList(myList);
-//    }
     ListOfFloorCells *myList = createEmptyFloorList(5);
     addSortedCellInFloorList(myList, 18, 4);
     addSortedCellInFloorList(myList, 25, 1);
@@ -46,12 +15,9 @@ int main() {
     displayOneFloorOfFloorList(myList, 1);
     displayOneFloorOfFloorList(myList, 2);
     displayOneFloorOfFloorList(myList, 3);
-    displayOneFloorOfFloorList(myList, 4);
     printf("\n");
+    displayOneFloorOfFloorList(myList, 4);
     displayFloorList(myList);
     deleteFloorList(myList);
-    printf("\n");
-    myList = createSortedListWithNValues(3);
-    displayFloorList(myList);
     return 0;
 }

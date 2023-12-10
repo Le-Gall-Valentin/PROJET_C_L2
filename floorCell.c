@@ -7,38 +7,44 @@
 
 
 FloorCell *createFloorCell(unsigned long long value, int nbFloors) {
-    // Initialise une new cell avec les valeurs données en paramètre
+    // Alloue dynamiquement de la mémoire pour une nouvelle instance de FloorCell
     FloorCell *newFloorCell = (FloorCell *) malloc(sizeof(FloorCell));
+
+    // Initialise la valeur et le nombre d'étages
     newFloorCell->value = value;
     newFloorCell->nbFloors = nbFloors;
+
+    // Initialise arrayOfNexts en appelant la fonction createArrayOfNexts
     newFloorCell->arrayOfNexts = createArrayOfNexts(nbFloors);
+
+    // Retourne la nouvelle instance de FloorCell
     return newFloorCell;
 }
 
 FloorCell **createArrayOfNexts(int nbFloors) {
     // initialise le tableau de next à NULL d'une taille nbFloor
     FloorCell **ArrayOfNext = (FloorCell **) malloc(nbFloors * sizeof(FloorCell *));
+
+    // Initialise chaque élément du tableau à NULL
     for (int i = 0; i < nbFloors; i++) {
         ArrayOfNext[i] = NULL;
     }
+
+    // Retourne le tableau nouvellement créé
     return ArrayOfNext;
 }
 
-int isEmptyArrayOfFloorCell(FloorCell **ArrayOfFloorCell, int size) {
-    // Test toutes les cases du tableau vérifiant si elles sont nulles
-    for (int i = 0; i < size; i++) {
-        if (ArrayOfFloorCell[i] != NULL) {
-            return 0;
-        }
-    }
-    return 1;
-}
 
 void deleteFloorCell(FloorCell *floorCell) {
-    //Supprime une Cell
+    // Supprime une Cell
+
+    // Libère la mémoire allouée dynamiquement pour arrayOfNexts
     free(floorCell->arrayOfNexts);
+
+    // Libère la mémoire allouée dynamiquement pour la structure FloorCell elle-même
     free(floorCell);
 }
+
 
 void displayFloorCell(FloorCell *floorCell) {
     // Affiche la valeur de la Cell
