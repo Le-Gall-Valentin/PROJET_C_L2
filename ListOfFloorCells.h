@@ -7,12 +7,12 @@
 
 #include "floorCell.h"
 #include "math.h"
-#include "manageInts.h"
 
 typedef struct ListOfFloorCells {
-    FloorCell **ArrayOfCell;
-    int nbFloors;
+    FloorCell **ArrayOfCell;  // Tableau de pointeurs vers des cellules de planchers
+    int nbFloors;             // Nombre d'étages dans la liste
 } ListOfFloorCells;
+
 
 ListOfFloorCells *createEmptyFloorList(int nbFloors);
 

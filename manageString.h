@@ -35,5 +35,7 @@ void toLowerCase(char *string);
 
 void printGapChar(char *name);
 
+int strcompByLevels(const char *str1, const char *str2, int index);
+
 
 #endif //PROJET_C_L2_3_MANAGESTRING_H

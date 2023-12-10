@@ -11,9 +11,14 @@
 #include "manageString.h"
 
 typedef struct event {
-    int day, month, year, hour, minutes, event_time;
-    char *eventDescription;
-    struct event *next;
+    int day;             // Jour de l'événement
+    int month;           // Mois de l'événement
+    int year;            // Année de l'événement
+    int hour;            // Heure de l'événement
+    int minutes;         // Minutes de l'événement
+    int event_time;      // Temps de l'événement
+    char *eventDescription;  // Description de l'événement
+    struct event *next;  // Pointeur vers le prochain événement dans la liste chaînée
 } Event;
 
 void displayListOfEvents(Event *list);
