@@ -17,6 +17,7 @@ int lenOfInt(unsigned long long value) {
 }
 
 void printGap(unsigned long long value) {
+    // Permet de garder le bon espacement entre les cellules à l'affichage
     int lenOfValue = lenOfInt(value);
     for (int i = 0; i < lenOfValue; ++i) {
         printf("-");
@@ -25,6 +26,7 @@ void printGap(unsigned long long value) {
 }
 
 unsigned long long getLongRandomNumber() {
+    // renvoie une valeur aléatoire de type unsigned long long 
     unsigned long long r = 0;
     for (int i = 0; i < 5; ++i) {
         r = (r << 15) | (rand() & 0x7FFF);
@@ -33,6 +35,7 @@ unsigned long long getLongRandomNumber() {
 }
 
 unsigned int nbDivideBy2(int value) {
+    //Renvoie Log2(value)
     unsigned int result = 0;
     while (((value % 2) == 0) && (value != 0)) {
         value = value / 2;
