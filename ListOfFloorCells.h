@@ -10,8 +10,8 @@
 #include "manageInts.h"
 
 typedef struct ListOfFloorCells {
-    FloorCell **ArrayOfCell;
-    int nbFloors;
+    FloorCell **ArrayOfCell;  // Tableau de pointeurs vers les premières cellules
+    int nbFloors;             // Nombre d'étages dans la liste
 } ListOfFloorCells;
 
 ListOfFloorCells *createEmptyFloorList(int nbFloors);

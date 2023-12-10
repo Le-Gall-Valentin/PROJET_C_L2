@@ -5,138 +5,166 @@
 #include "ListOfFloorCells.h"
 
 
-void deleteFloorListRecursivly(FloorCell *list);
-
 ListOfFloorCells *createEmptyFloorList(int nbFloors) {
+    // Alloue dynamiquement de la mémoire pour une nouvelle instance de ListOfFloorCells
     ListOfFloorCells *newFloorList = (ListOfFloorCells *) malloc(sizeof(ListOfFloorCells));
-    //ArrayOfCell est un tableau des 1er next de la taille nbfloor.
+
+    // Initialise le tableau de pointeurs vers des cellules d'étages suivants
     newFloorList->ArrayOfCell = createArrayOfNexts(nbFloors);
-    // on initialise le parametre nbfloor
+
+    // Initialise le nombre d'étages dans la liste
     newFloorList->nbFloors = nbFloors;
+
+    // Retourne la nouvelle instance de ListOfFloorCells
     return newFloorList;
 }
 
+
 void addHeadFloorList(ListOfFloorCells *list, unsigned long long value, int nbFloors) {
-    // On initialise une nouvelle floorCell
+    // Crée une nouvelle cellule avec la valeur et le nombre d'étages spécifiés
     FloorCell *newCell = createFloorCell(value, nbFloors);
+
+    // Met à jour les pointeurs de la nouvelle cellule pour pointera vers les étages suivants de la liste
     for (int i = 0; i < nbFloors; ++i) {
-        //initialise tous les pointeurs du tableu de next de la nouvelle Cell avec les pointeurs vers quoi pointe la liste
         newCell->arrayOfNexts[i] = list->ArrayOfCell[i];
     }
+
+    // Met à jour les pointeurs de la liste pour pointera vers la nouvelle cellule
     for (int i = 0; i < nbFloors; i++) {
-        //set les nbFloor premiers pointeurs du tableau de next de la list pointant sur la nouvelle cell
         list->ArrayOfCell[i] = newCell;
     }
 }
 
 void addSortedCellInFloorList(ListOfFloorCells *list, unsigned long long value, int nbFloors) {
-    // initialisation d'une nouvelle FloorCell
+    // Crée une nouvelle cellule avec la valeur et le nombre d'étages spécifiés
     FloorCell *newCell = createFloorCell(value, nbFloors);
-    //initialise deux FloorCell temporaire
+
+    // Déclarations de pointeurs pour la navigation dans la liste
     FloorCell *current = NULL;
     FloorCell *prev = NULL;
-    //Parcours de l'étage le plus haut vers le plus bas
+
+    // Parcourt chaque niveau (étage) de la liste
     for (int level = nbFloors - 1; level >= 0; --level) {
-        //current point sur la valeurs pointée par la liste
+        // Initialise les pointeurs pour la traversée
         current = list->ArrayOfCell[level];
         prev = NULL;
-        //parcours tant que la valeur de current n'est pas NULL (fin de la liste) ou que current ne rencontre pas de valeurs plus grandes
+
+        // Parcourt la liste jusqu'à trouver la bonne position pour la nouvelle cellule
         while (current != NULL && current->value < value) {
             prev = current;
             current = current->arrayOfNexts[level];
         }
+
+        // Insère la nouvelle cellule à la bonne position
         if (prev == NULL) {
-            //Exemple si il n'y a qu'une valeur sur le level et qu'on ajoute entre cette valeur et la list
-            //le prev reste au début de la list
             newCell->arrayOfNexts[level] = list->ArrayOfCell[level];
             list->ArrayOfCell[level] = newCell;
         } else {
-            //si on va à gauche car la valeur est plus petite
-            //la newcell pointe sur la prochaine cell
             newCell->arrayOfNexts[level] = prev->arrayOfNexts[level];
-            //la cell precedente pointe sur la nouvelle
             prev->arrayOfNexts[level] = newCell;
         }
-        //on descend d'un level pour faire tous les levels
     }
 }
 
 
 void displayOneFloorOfFloorList(ListOfFloorCells *list, int floor) {
-    // Cette fonction permet d'afficher une hauteur spécifiée en paramètre 
+    // Vérifie que l'étage spécifié est valide
     if (floor <= list->nbFloors - 1) {
+        // Affiche le début de la liste pour cet étage
         printf("[list head_%d @-]", floor);
+
+        // Initialise un pointeur temporaire pour la navigation dans la liste
         FloorCell *temporaryCell = list->ArrayOfCell[floor];
-        // Parcours jusqu'à se que le temp arrive à NULL
+
+        // Parcourt la liste et affiche chaque cellule pour cet étage
         while (temporaryCell != NULL) {
             printf("-->");
             displayFloorCell(temporaryCell);
             temporaryCell = temporaryCell->arrayOfNexts[floor];
         }
+
+        // Affiche NULL à la fin de la liste
         printf("NULL\n");
     }
 }
 
 void displayFloorList(ListOfFloorCells *list) {
-    // Cette fonction permet d'afficher toute la liste de façon à ce que chaque cellule de chaque hauteur soit alignées
+    // Parcourt chaque étage de la liste
     for (int i = 0; i < list->nbFloors; ++i) {
+        // Affiche le début de la liste pour cet étage
         printf("[list head_%d @-]", i);
+
+        // Initialise les pointeurs temporaires pour la navigation dans les étages
         FloorCell *temporaryCellFloorI = list->ArrayOfCell[i];
         FloorCell *temporaryCellFloor0 = list->ArrayOfCell[0];
+
+        // Parcourt la liste pour l'étage 0
         while (temporaryCellFloor0 != NULL) {
-            // Si la cellule première cellule de la hauteur i est la même que la cellule de hauteur 0
+            // Vérifie si la cellule actuelle de l'étage 0 correspond à celle de l'étage courant
             if (temporaryCellFloor0 == temporaryCellFloorI) {
                 printf("-->");
-                // Affichage de la Cell
                 displayFloorCell(temporaryCellFloorI);
-                //On avance temporaryCellFloorI d'une cellule du même niveau
                 temporaryCellFloorI = temporaryCellFloorI->arrayOfNexts[i];
             } else {
-                // On printGap ce qui permet de garder les cellules alignées à l'affichage
+                // Affiche un espace correspondant à la valeur de la cellule de l'étage 0
                 printGap(temporaryCellFloor0->value);
             }
-            //On avance temporaryCellFloor0 de une cellule sur le niveau 0
             temporaryCellFloor0 = temporaryCellFloor0->arrayOfNexts[0];
         }
-        //Afficher le dernier pointeur de la liste qui est null
+
+        // Affiche "NULL" à la fin de la liste pour cet étage
         printf("-> NULL\n");
     }
 }
 
 ListOfFloorCells *createSortedListWithNValues(int n) {
+    // Crée une nouvelle liste vide avec n étages
     ListOfFloorCells *sortedList = createEmptyFloorList(n);
+
+    // Remplit la liste avec des valeurs triées
     for (int i = (int) pow(2, n) - 1; i > 0; --i) {
-        // Ajoute en tête de sortedList une FloorCell de valeur i et de nbFloor nbDivideBy2(i) +1 
+        // Ajoute la valeur i à la tête de la liste avec le nombre d'étages déterminé par nbDivideBy2(i) + 1
         addHeadFloorList(sortedList, i, (int) nbDivideBy2(i) + 1);
     }
+
+    // Retourne la liste triée
     return sortedList;
 }
 
 int classicSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value) {
+    // Initialise un pointeur temporaire pour la navigation dans la liste au niveau 0
     FloorCell *temporaryCell = list->ArrayOfCell[0];
-    // Tant qu'on arrive pas à la fin de la liste ou que nous n'avons pas trouvé la valeur cherchée
+
+    // Tant qu'on n'arrive pas à la fin de la liste ou qu'on n'a pas trouvé la valeur cherchée
     while (temporaryCell->arrayOfNexts[0] != NULL && temporaryCell->value != value) {
         temporaryCell = temporaryCell->arrayOfNexts[0];
     }
-    // Si on trouve la valeur alors on retourne 1 pour dire qu'elle y est
+
+    // Si on trouve la valeur, on retourne 1 pour indiquer qu'elle est présente, sinon on retourne 0
     if (temporaryCell->value == value) {
         return 1;
     }
+
     return 0;
 }
 
 int levelSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value) {
+    // Initialise les pointeurs temporaires pour la navigation dans la liste
     FloorCell *temporary = list->ArrayOfCell[list->nbFloors - 1];
     FloorCell *previous = NULL;
-    // parcours de la dernière hauteur à la plus basse
+
+    // Parcourt les niveaux de la liste en commençant par le niveau le plus élevé
     for (int i = list->nbFloors - 1; i >= 0; --i) {
+        // Vérifie si la valeur est égale à la valeur de la cellule actuelle au niveau i
         if (temporary->value == value) {
-            return 1;
-        //Si ma valeur cherchée est plus grande alors je vais à droite 
+            return 1;  // La valeur est trouvée, retourne 1
         } else if (value > temporary->value) {
+            // Si la valeur est supérieure à la valeur de la cellule actuelle, déplace les pointeurs vers la cellule suivante au niveau inférieur
             previous = temporary;
             temporary = temporary->arrayOfNexts[i - 1];
         } else {
+            // Si la valeur est inférieure à la valeur de la cellule actuelle,
+            // déplace les pointeurs vers la cellule au même niveau ou vers la cellule précédente au niveau inférieur
             if (previous == NULL) {
                 temporary = list->ArrayOfCell[i - 1];
             } else {
@@ -144,18 +172,27 @@ int levelSearchValueInFloorList(ListOfFloorCells *list, unsigned long long value
             }
         }
     }
+
+    // Si la boucle se termine sans trouver la valeur, retourne 0
     return 0;
 }
 
+
 void deleteFloorList(ListOfFloorCells *list) {
+    // Déclarations des pointeurs temporaires
     FloorCell *previous = NULL;
     FloorCell *temporary = list->ArrayOfCell[0];
-    //Supprimer chaque Cell de la liste
+
+    // Parcourt la liste et libère la mémoire pour chaque cellule
     while (temporary != NULL) {
         previous = temporary;
         temporary = temporary->arrayOfNexts[0];
         deleteFloorCell(previous);
     }
+
+    // Libère la mémoire allouée pour le tableau de pointeurs
     free(list->ArrayOfCell);
+
+    // Libère la mémoire allouée pour la structure ListOfFloorCells elle-même
     free(list);
 }
