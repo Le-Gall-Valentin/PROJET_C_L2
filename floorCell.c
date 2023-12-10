@@ -36,7 +36,6 @@ int isEmptyArrayOfFloorCell(FloorCell **ArrayOfFloorCell, int size) {
 
 void deleteFloorCell(FloorCell *floorCell) {
     //Supprime une Cell
-    printf("%d\n", floorCell->value);
     free(floorCell->arrayOfNexts);
     free(floorCell);
 }

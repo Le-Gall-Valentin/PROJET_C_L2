@@ -49,5 +49,9 @@ int main() {
     displayOneFloorOfFloorList(myList, 4);
     printf("\n");
     displayFloorList(myList);
+    deleteFloorList(myList);
+    printf("\n");
+    myList = createSortedListWithNValues(3);
+    displayFloorList(myList);
     return 0;
 }
